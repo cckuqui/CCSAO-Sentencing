@@ -79,6 +79,7 @@ var data = [trace1];
 
 var layout = {
   title: "'Pie' Chart",
+  background: "transparent"
 };
 
 Plotly.newPlot("plot", data, layout);
