@@ -11,15 +11,16 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
-  <link href="../static/css/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/assets/css/material-dashboard.css?v=2.1.0') }}">
+  <link href="../static/css/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" >
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 </head>
 
 <body class="dark-edition">
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../static/css/assets/img/sidebar-1.jpg">
       <div class="logo">
-        <a href="./index.html" class="simple-text logo-normal">
+        <a href="{{ url_for('index') }}" class="simple-text logo-normal">
           Cook County Sentencing
         </a>
       </div>
@@ -75,20 +76,50 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Map</a>
+            <a class="navbar-brand" href="javascript:void(0)"> This is {{ chart_title }}</a>
+
           </div>
         </div>
         <div class="copyright float-right">
           <p>hey</p>
         </div>
       </nav>
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-8 col-lg-12">
+              <div class="card card-chart">
+                <div class="card-header card-header-success">
+                  <div id="plot"></div>
+                </div>                  
+                </div>
+                <div class="card-body">
+                 
+                  <h4 class="card-title">{{ chart_title }}</h4>
+                  <p class="card-category">
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                </div> 
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
 
+     
+      
+  </div>
   <!--   Core JS Files   -->
-  <script src="./assets/js/core/jquery.min.js"></script>
-  <script src="./assets/js/core/popper.min.js"></script>
-  <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="./assets/js/core/material-dashboard.js?v=2.1.0"></script>
+ 
+  <script src="{{ url_for('static', filename='../static/css/assets/js/core/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='../static/css/assets/js/core/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='../static/css/assets/js/core/bootstrap-material-design.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='../static/css/assets/js/core/material-dashboard.js?v=2.1.0') }}"></script>
+  <script src="static/css/assets/js/plots.js"></script>
 </body>
 
 </html>
