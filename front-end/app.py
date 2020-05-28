@@ -5,9 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    bar_labels=labels
-    bar_values=values
-    return render_template('index.html', chart_title='Bitcoin Monthly Price in USD', max=17000, labels=bar_labels, values=bar_values)
+    return render_template('index.html')
 
 @app.route('/demographics')
 def demographics():
