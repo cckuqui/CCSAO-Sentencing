@@ -48,7 +48,7 @@
               </li>
               <li class="nav-item  ">
                 <a class="nav-link" href="{{ url_for('length_of_case') }}">
-                  <p>Lenght of Cases</p>
+                  <p>Length of Cases</p>
                 </a>
               </li>
               <li class="nav-item active">
@@ -86,13 +86,48 @@
           <p>hey</p>
         </div>
       </nav>
+       <!-- Body -->
+       <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12">
+              <div class="card card-chart">               
+                  <div id="cn_st_multibar"></div>                
+                <div class="card-body">
+                  <h4 class="card-title">Age Demographics</h4>
+                  <p class="card-category">
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          <div class="row">
+            <div class="col-xl-12 col-lg-12">
+              <div class="card card-chart">               
+                  <div id="age_ct_scatter"></div>                
+                <div class="card-body">
+                  <h4 class="card-title">Age Demographics</h4>
+                  <p class="card-category">
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+
     </div>
 
   <!--   Core JS Files   -->
-  <script src="./assets/js/core/jquery.min.js"></script>
-  <script src="./assets/js/core/popper.min.js"></script>
-  <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="./assets/js/core/material-dashboard.js?v=2.1.0"></script>
+  <script src="static/css/assets/js/age_ct_scatter.js"></script>
+  <script src="static/css/assets/js/cn_st_multibar.js"></script>
 </body>
 
 </html>
