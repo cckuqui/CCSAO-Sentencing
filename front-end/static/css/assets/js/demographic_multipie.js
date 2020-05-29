@@ -1,6 +1,8 @@
-d3.json("general_demographics.json").then(function(data) {
-    console.log(data);
+d3.json("general_demographics.json").then(function(demoData) {
+    console.log("yay!");
+    console.log(demoData);
 });
+
 // d3.json("general_demographics.json").then(function(data) {
 //    var total_charges = Object.keys(data).length;
 //    console.log(total_charges);
@@ -258,5 +260,6 @@ d3.json("general_demographics.json").then(function(data) {
 // }
 // );
 //     chartObj.render();
-// });
+
+
 
