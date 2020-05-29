@@ -8,14 +8,14 @@ var trace1 = {
   var trace2 = {
     x: [2, 3, 4, 5],
     y: [16, 5, 11, 9],
-    mode: 'lines',
+    mode: 'markers',
     type: 'scatter'
   };
   
   var layout = {
     title: "Basic Scatter Plot",
-    width: 1050,
-    height: 500,
+    width: 950,
+    height: 350,
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)', 
     font: {
@@ -25,4 +25,4 @@ var trace1 = {
   
   var data = [trace1, trace2];
   
-  Plotly.newPlot("loc_oc_scatter", data, layout);
+  Plotly.newPlot("loc_ct_scatter", data, layout);

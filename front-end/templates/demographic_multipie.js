@@ -1,4 +1,4 @@
-d3.json("general_demographics.json").then(function(data) {
+d3.json("../static/css/assets/js/general_demographics.json").then(function(data) {
     console.log(data);
 });
 // d3.json("general_demographics.json").then(function(data) {
