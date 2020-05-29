@@ -50,7 +50,7 @@ CREATE TABLE "results" (
     "charge_disposition" varchar,
     "charge_id" bigint,
     "charge_version_id" bigint,
-    "length_of_case_in_days" integer
+    "length_of_case_in_days" bigint
 );
 
 ALTER TABLE "results" ADD CONSTRAINT "fk_results_case_participant_id" FOREIGN KEY("case_participant_id")
