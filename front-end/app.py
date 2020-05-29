@@ -11,6 +11,10 @@ def index():
 def demographics():
     return render_template('demographics.html')
 
+# def line():
+#     line_labels=labels
+#     line_values=values
+#     return render_template('demographics.html', title='Bitcoin Monthly Price in USD', max=17000, labels=line_labels, values=line_values)
 
 @app.route('/offense_category')
 def offense_category():
