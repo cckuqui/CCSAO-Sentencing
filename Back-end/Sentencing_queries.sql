@@ -9,9 +9,6 @@ ORDER BY age_at_incident ASC;
 
 -- For the Boxplots on the Landing page/Dashboard
 -- We may have to run similar but separate queries split by sentence_type (because of the differences in committment unit)
--- ALSO, THERE ARE NOVALUES FOR CC BOOTCAMP IN THE SENTENCES TABLE, THEY DID NOT EXPORT FROM PANDAS
-    -- SELECT * FROM sentences
-    -- WHERE sentence_type = 'Cook County Bootcamp';
 SELECT sentences.committment_term, sentences.commitment_unit, sentences.sentence_type, offenses.offense_category, courts.court_name
 FROM results
 LEFT JOIN sentences ON results.sentence_id = sentences.sentence_id
