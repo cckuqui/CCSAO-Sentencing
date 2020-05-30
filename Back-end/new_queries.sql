@@ -103,3 +103,29 @@ from
 left join sentences s
 	on s.sentence_id = fr.sentence_id
 where fr.length_of_case_in_days != 0;
+
+-- Multi-color barchart of courts
+select
+	fr.court_name,
+	count(s.sentence_type) sentence_type,
+	fr.offense_category
+from (
+	select
+		co.court_name,
+		o.offense_category,
+		r.sentence_id
+	from results r
+		 left join offenses o
+	 	on r.offense_id = o.offense_id
+	 left join courts co
+	 	on r.court_id = co.court_id
+	 group by (
+		co.court_name,
+		o.offense_category,
+		r.sentence_id
+	 )) fr
+left join sentences s
+	on s.sentence_id = fr.sentence_id
+group by 
+	fr.court_name,
+	fr.offense_category;
