@@ -1,7 +1,7 @@
-d3.json("general_demographics.json").then(function(demoData) {
-    console.log("yay!");
-    console.log(demoData);
-});
+// d3.json("general_demographics.json").then(function(demoData) {
+//     console.log("yay!");
+//     console.log(demoData);
+// });
 
 // d3.json("general_demographics.json").then(function(data) {
 //    var total_charges = Object.keys(data).length;
