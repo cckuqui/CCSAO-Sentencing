@@ -129,3 +129,58 @@ left join sentences s
 group by 
 	fr.court_name,
 	fr.offense_category;
+
+-- Scatter of courts
+select
+	count(fr.case_participant_id) participants,
+	fr.age_at_incident,
+	s.month,
+	s.year,
+	s.sentence_type,
+	fr.court_name
+from (
+	select
+		pa.case_participant_id,
+		co.court_name,
+		r.sentence_id,
+		pa.age_at_incident
+	from results r
+		left join offenses o
+	 		on r.offense_id = o.offense_id
+		left join courts co
+	 		on r.court_id = co.court_id
+		left join participants pa
+			on r.case_participant_id = pa.case_participant_id
+	 group by (
+		pa.case_participant_id,
+		co.court_name,
+		r.sentence_id,
+		pa.age_at_incident
+	 )) fr
+left join sentences s
+	on s.sentence_id = fr.sentence_id
+group by 
+	fr.age_at_incident,
+	s.month,
+	s.year,
+	s.sentence_type,
+	fr.court_name;
+
+-- Multipie chart of offense
+select
+	r.case_id,
+	o.offense_category,
+	s.sentence_type,
+	co.court_name
+from results r
+left join offenses o
+	on r.offense_id = o.offense_id
+left join courts co
+	on r.court_id = co.court_id
+left join sentences s
+	on r.sentence_id = s.sentence_id
+group by
+	r.case_id,
+	o.offense_category,
+	s.sentence_type,
+	co.court_name;
