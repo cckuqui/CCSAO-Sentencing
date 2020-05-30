@@ -2,7 +2,11 @@
 <html lang="en">
 
   <head>
+<<<<<<< HEAD
+    <title>Cook County Sentencing Data Set</title>
+=======
     <title>Cook County Sentencing</title>
+>>>>>>> 11bac5c5caaa497a340c39b0952aa0c504201163
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -11,6 +15,11 @@
     <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <!--     Fonts and icons     -->
+<<<<<<< HEAD
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+=======
+>>>>>>> 11bac5c5caaa497a340c39b0952aa0c504201163
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- Material Kit CSS -->
@@ -82,7 +91,40 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Map</a>
+            <a class="navbar-brand" href="javascript:void(0)">Raw Data Table</a>
+          </div>
+          <div class="col-md-10">
+            <div id="table-area" class="">
+              <table id="ufo-table" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="table-head">Case ID</th>
+                    <th class="table-head">Case Participant ID</th>
+                    <th class="table-head">Charge ID</th>
+                    <th class="table-head">Charge Version ID</th>
+                    <th class="table-head">Court Facility</th>
+                    <th class="table-head">Court Name</th>
+                    <th class="table-head">Age at Incident</th>
+                    <th class="table-head">Gender</th>
+                    <th class="table-head">Race</th>
+                    <th class="table-head">Charge Disposition</th>
+                    <th class="table-head">Length of Case in Days</th>
+                    <th class="table-head">Current Sentence</th>
+                    <th class="table-head">Primary Charge</th>
+                    <th class="table-head">Sentence Date</th>
+                    <th class="table-head">Offense Category</th>
+                    <th class="table-head">Commitment Term</th>
+                    <th class="table-head">Commitment Unit</th>
+                    <th class="table-head">Sentence Type</th>
+                    <th class="table-head">Date Year</th>
+                    <th class="table-head">Month</th>
+                    <th class="table-head">Year</th>
+                    <th class="table-head">Age by Category</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
           </div>
         </div>
         <div class="copyright float-right">
@@ -92,10 +134,17 @@
     </div>
 
   <!--   Core JS Files   -->
-  <script src="./assets/js/core/jquery.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script> 
   <script src="./assets/js/core/popper.min.js"></script>
   <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="./assets/js/core/material-dashboard.js?v=2.1.0"></script>
+  <script src="./assets/js/core/material-dashboard.js?v=2.1.0"></script>          
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../static/css/assets/js/datatable.js"></script>
+
 </body>
 
 </html>

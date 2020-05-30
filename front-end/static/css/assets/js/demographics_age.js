@@ -19,14 +19,24 @@ d3.json("./static/css/assets/js/general_demographics.json").then(function(demoDa
 
   function init() {
     var data = [{
+<<<<<<< HEAD
+      values: "Age Group, # Cases: " + values,
+      labels: "Age group: " + labels,
+=======
       values: values,
       labels: labels,
+>>>>>>> 11bac5c5caaa497a340c39b0952aa0c504201163
       type: "pie"
     }];
   
     var layout = {
       height: 600,
+<<<<<<< HEAD
+      width: 800,
+      title: "Sentencing Demographics by Age Group"
+=======
       width: 800
+>>>>>>> 11bac5c5caaa497a340c39b0952aa0c504201163
     }
   
     Plotly.newPlot("demographics_age", data, layout);
