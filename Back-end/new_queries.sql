@@ -50,3 +50,56 @@ from
 left join sentences s
 	on s.sentence_id = fr.sentence_id
 where s.month !=0;
+
+-- Scatter for length of case
+select
+	fr.length_of_case_in_days,
+	s.month,
+	s.year,
+	fr.offense_category,
+	s.sentence_type
+from 
+	(select
+	 	r.sentence_id,
+	 	r.length_of_case_in_days,
+	 	o.offense_category
+	 from results r
+	 left join offenses o
+	 	on r.offense_id = o.offense_id
+	 group by (
+		r.sentence_id,
+	 	r.length_of_case_in_days,
+	 	o.offense_category
+	 )) fr
+left join sentences s
+	on s.sentence_id = fr.sentence_id
+where s.month !=0 
+and fr.length_of_case_in_days != 0;
+
+
+-- Boxplot for length of case
+select
+	fr.length_of_case_in_days,
+	fr.offense_category,
+	s.sentence_type,
+	fr.court_name
+from 
+	(select
+	 	r.sentence_id,
+	 	r.length_of_case_in_days,
+	 	o.offense_category,
+	 	co.court_name
+	 from results r
+	 left join offenses o
+	 	on r.offense_id = o.offense_id
+	 left join courts co
+	 	on r.court_id = co.court_id
+	 group by (
+		r.sentence_id,
+	 	r.length_of_case_in_days,
+	 	o.offense_category,
+		co.court_name
+	 )) fr
+left join sentences s
+	on s.sentence_id = fr.sentence_id
+where fr.length_of_case_in_days != 0;
