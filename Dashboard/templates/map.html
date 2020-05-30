@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+
+  <head>
+ 
+    
+    <title>Cook County Sentencing</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="icon" type="image/png" href="static/css/assets/img/favicon.png">
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- Material Kit CSS -->
+    <link href="../static/css/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" >
+   
+    <!-- Map Meta Start -->
+       <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+       <script>
+           L_NO_TOUCH = false;
+           L_DISABLE_3D = false;
+       </script>
+   
+   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+   <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+   <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+   <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+   
+           <meta name="viewport" content="width=device-width,
+               initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+           <style>
+               #map_62a1259f688141f8b8eb21d7f7897b31 {
+                   position: relative;
+                   width: 100.0%;
+                   height: 100.0%;
+                   left: 0.0%;
+                   top: 0.0%;
+               }
+           </style>
+       
+   
+                   <style>
+                       .foliumtooltip {
+                           
+                       }
+                      .foliumtooltip table{
+                           margin: auto;
+                       }
+                       .foliumtooltip tr{
+                           text-align: left;
+                       }
+                       .foliumtooltip th{
+                           padding: 2px; padding-right: 8px;
+                       }
+                   </style>
+           
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+
+   <!-- Map Meta Finish -->
+
+  
+  </head>
+
+
+<body class="dark-edition">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../static/css/assets/img/sidebar-1.jpg">
+      <div class="logo">
+        <a href="{{ url_for('index') }}" class="simple-text logo-normal">
+          Cook County Sentencing
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <!-- your sidebar elements here -->
+              <li class="nav-item active ">
+                <a class="nav-link" href="{{ url_for('index') }}">
+                  <i class="material-icons">dashboard</i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-item  ">
+                <a class="nav-link" href="{{ url_for('demographics') }}">
+                  <p>Demographics</p>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('offense_category') }}">
+                  <p>Offense Categories</p>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('length_of_case') }}">
+
+                  <p>Length of Cases</p>
+
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href= "{{ url_for('courts') }}">
+                  <p>Courts</p>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('about') }}">
+                  <p>About</p>
+                </a>
+              </li>    
+              <li class="nav-item  ">
+                <a class="nav-link" href="{{ url_for('data') }}">
+                  <p>Data</p>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('map') }}">
+                  <p>Judicial Districts Map</p>
+                </a>
+              </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <div class="col-xl-12 col-lg-12">
+        <div class="card card-chart">                               
+          <div class="card-body">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://patelpurvip.github.io/map-proxy/" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</body>
+
+</html>

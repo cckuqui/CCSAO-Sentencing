@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>Cook County Sentencing</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- Material Kit CSS -->
+    <link href="../static/css/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" >  
+  </head>
+
+
+<body class="dark-edition">
+  <div class="wrapper ">
+    <style>
+      .wrapper {
+        color: #ffffff; 
+        margin-top: 50px;
+        margin-bottom: 100px;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+    </style>
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../static/css/assets/img/sidebar-1.jpg">
+      <div class="logo">
+        <a href="./index.html" class="simple-text logo-normal">
+          Cook County Sentencing
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <!-- your sidebar elements here -->
+              <li class="nav-item  ">
+                <a class="nav-link" href="{{ url_for('index') }}">
+                  <i class="material-icons">dashboard</i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-item  ">
+                <a class="nav-link" href="{{ url_for('demographics') }}">
+                  <p>Demographics</p>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('offense_category') }}">
+                  <p>Offense Categories</p>
+                </a>
+              </li>
+              <li class="nav-item  ">
+                <a class="nav-link" href="{{ url_for('length_of_case') }}">
+
+                  <p>Length of Cases</p>
+
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href= "{{ url_for('courts') }}">
+                  <p>Courts</p>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('about') }}">
+                  <p>About</p>
+                </a>
+              </li>    
+              <!-- <li class="nav-item  ">
+                <a class="nav-link" href="{{ url_for('data') }}">
+                  <p>Data</p>
+                </a>
+              </li> -->
+              <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('map') }}">
+                  <p>Judicial Districts Map</p>
+                </a>
+              </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+        <div class="copyright float-right">
+          <h2>Group Members:</h2>
+          <p> Cristina Bardan, Antonio Aramoni, Daniel Orta, Purvi Patel</p>
+          <hr>
+          <br>
+          <h2>Topic: </h2>
+          <p>Analysis of sentencing data from Cook County State’s Attorney’s Office (CCSAO)</p>
+          <h2>Dataset: </h2>
+          <strong><a target=blank href="https://datacatalog.cookcountyil.gov/Courts/Sentencing/tg8v-tm6u"> LINK: CCSAO Sentencing Data Set (Dec 2019)<a></strong>
+          <br>
+          <br>
+          <hr>
+          <h2>Proposal: Topic & Rational</h2>
+          <p>In early 2018, the State’s Attorney (judicial prosecutor’s office) in Cook County, Illinois – where the city of Chicago is located – made public a series of unfiltered datasets on all felony criminal cases processed in Cook County, as part of an initiative to increase transparency in the criminal justice system. The case-level datasets contain anonymized information about every felony case processed by the State’s Attorney’s Office (SAO) dating back to roughly 2010, and have been provided for free so that any person or group can analyze the data and share the results publicly.</p>
+          <br>
+          <p>There are 4 datasets, representing the four stages of interaction with the SAO during the legal process:</p>
+          <ol>
+            <li>INTAKE – initial investigations, potential cases for prosecution</li>
+            <li>INITIATION – start of the legal process for cases that the SAO decides to prosecute</li>
+            <li>DISPOSITION – the results of the fact-finding process and final outcome of the case</li>
+            <li>SENTENCING – penalties imposed on cases found “guilty”</li>
+          </ol>
+          <br>
+          <br>
+          <p>For this project, the group proposed to focus on analysis of ONE of the datasets (Sentencing), with a focus on specific topics related to sentencing outcomes, such as:</p>
+          <ul>
+            <li>A demographic analysis of persons found “guilty” of a felony charge (i.e. age, race, gender)</li>
+            <li>An analysis of the types of sentences imposed, possibly disaggregated by type of offense</li>
+            <li>An evaluation of the total time needed in the judicial process to arrive at the final sentence</li>
+            <li>An evaluation of the number of guilty findings and types of sentences grouped by the court or district where the case was processed</li>
+          </ul>
+          <p>The project tried to take advantage of a dataset publicly available for free in both downloadable format (csv) and through an API url.  There is a strong interest by the SAO in Cook County to encourage the public to analyze the data, but the SAO does not have the resources to do this analysis directly.</p>
+        </div>
+    </div>
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/core/jquery.min.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="./assets/js/core/material-dashboard.js?v=2.1.0"></script>
+</body>
+
+</html>
