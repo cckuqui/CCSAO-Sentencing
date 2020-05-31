@@ -1,16 +1,17 @@
 d3.json("./static/data.json").then(function(demoData) {
-  console.log(demoData);
+  // console.log(demoData);
   
       data.age_at_incident = +data.age_at_incident;
-      
-    // data.obesity = +data.obesity;
-    // data.poverty = +data.poverty;
 
 
 //   var labels= [];
 //   var values= [];
 
-//   labels= Object.values(demoData.age_bins);
+  var labels = Object.values(demoData);
+  // console.log(labels);
+
+  var try2 = Object.values(labels);
+  console.log(try2);
   
 //   values= Object.values(demoData.age_at_incident).length;
   
