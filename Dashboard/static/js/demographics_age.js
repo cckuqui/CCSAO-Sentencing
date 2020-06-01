@@ -1,67 +1,32 @@
-d3.json("./static/data.json").then(function(demoData) {
-  // console.log(demoData);
+d3.json("./static/participants_age.json").then(function (data) {
   
-      data.age_at_incident = +data.age_at_incident;
-
-
-//   var labels= [];
-//   var values= [];
-
-  var labels = Object.values(demoData);
-  // console.log(labels);
-
-  var try2 = Object.values(labels);
-  console.log(try2);
+  // var data = Object.values(data);
+  // console.log(datam);
+  console.log(data);
+  console.log(data.race);
   
-//   values= Object.values(demoData.age_at_incident).length;
-  
-//   console.log(labels);
-//   console.log(values);
+  var label = Object.keys(data.race);
+  var value = Object.values(data.race);
 
-//   function init() {
-//     var data = [{
-//       values: 'Number of cases ' + values,
-//       labels: 'Age groups: '+ labels,
-//       type: "pie"
-//     }];
-  
-//     var layout = {
-//       height: 600,
-//       width: 800,
-//       title: "Sentencing Demographics by Age Group"
-//     }
-  
-//     Plotly.newPlot("demographics_age", data, layout);
-//   }
-//   // demoData.forEach(function(data) {
+  console.log(label);
+  console.log(value);
 
-//   init();
-
-
-
+  var trace = {
+      labels: label,
+      values: value,
+      type: 'pie'
+    };
+    
+    var data = [trace];
+    
+    var layout = {
+      title: "Counts of participants based on age groups",
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      plot_bgcolor: 'rgba(0,0,0,0)', 
+      font: {
+        color: 'white'
+    }
+    };
+    
+    Plotly.newPlot("demographics_age", data, layout);
 });
-
-//   var data = [];
-
-// });
-
-
-// var trace1 = {
-//   labels: ["beer", "wine", "martini", "margarita",
-//       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-//   values: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-//   type: 'pie'
-// };
-
-// var data =[];
-
-// var layout = {
-//   title: "'Pie' Chart",
-//   paper_bgcolor: 'rgba(0,0,0,0)',
-//   plot_bgcolor: 'rgba(0,0,0,0)',
-//   font: {
-//     color: 'white'
-// }
-// };
-
-// Plotly.newPlot("demographics_age", data, layout);
