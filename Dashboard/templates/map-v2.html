@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Map{% endblock %}
+
+  {% block main_panel %}
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <a class="navbar-brand" href="javascript:void(0)">Map of Cook County districs</a>
+        </div>
+      </div>
+    </nav>
+
+      <div class="col-xl-12 col-lg-12">
+        <div class="card card-chart">                               
+          <div class="card-body">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://patelpurvip.github.io/map-proxy/" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    {% endblock %}
+
+    <!--   Core JS Files   -->
+    
+    {% block scripts %}
+    <!-- Bootstraps -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {% endblock %}

@@ -1,42 +1,46 @@
-{% extends "base.html" %}
+    {% extends "base.html" %}
 
-{% block main_panel %}
+    {% block main_panel %}
 
-<div class='row'>
-    <div class='filter1 col-lg-4'>
-        <button class="btn btn-secondary dropdown-toggle dropdown1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            12
-            <!-- {{ title-dropdown1 }} -->
-        </button>
-        <div class="dropdown-menu dropdown1" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item dropdown1" href="#">
-                Courtname
-            </a>
+    <div class="filters row col-lg-12">
+        <div class="col-lg-4 d-flex justify-content-center">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Court Name
+                </button>
+                <div class="dropdown-menu" id=dropdown1 aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">
+                        Action
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 d-flex justify-content-center">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Offense Category
+                </button>
+                <div class="dropdown-menu" id=dropdown2 aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">
+                        Action
+                    </a>   
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 d-flex justify-content-center">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sentence           
+                </button>
+                <div class="dropdown-menu" id=dropdown3 aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">
+                        Action
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class='filter2 col-lg-4'>
-        <button class="btn btn-secondary dropdown-toggle dropdown2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            13
-            <!-- {{ title-dropdown2 }} -->
-        </button>
-        <div class="dropdown-menu dropdown2" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item dropdown2" href="#">
-                Courtname
-            </a>
-        </div>
-    </div>
-
-    <div class='filter3 col-lg-4'>
-        <button class="btn btn-secondary dropdown-toggle dropdown3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            14
-            <!-- {{ title-dropdown3 }} -->
-        </button>
-        <div class="dropdown-menu dropdown3" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item dropdown3" href="#">
-                Courtname
-            </a>
-        </div>
-</div>
-
-{% endblock %}
+    {% endblock %}

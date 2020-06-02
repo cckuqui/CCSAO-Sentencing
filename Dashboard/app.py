@@ -38,7 +38,7 @@ def data():
 
 @app.route('/map')
 def map():
-    return render_template('map.html', text= "Judicial Districts Map")
+    return render_template('map-v2.html', text= "Judicial Districts Map")
 
 if __name__ == "__main__":
     app.run(debug=True)
