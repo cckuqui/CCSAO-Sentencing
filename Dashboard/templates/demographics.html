@@ -12,9 +12,23 @@
         </div>
       </nav>
 
-      <!-- Body -->
+
+    {{ super() }}
+    
+    
+    <!-- Body -->
       <div class="content">
         <div class="container-fluid">
+          <div class="filters row">
+            <div class="column col-lg-4" id="filter1">
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Courtname</a>
+              </div>
+            </div>
+            <div class="column col-lg-4"></div>
+            <div class="column col-lg-4"></div>
+
+          </div>
           <div class="row">
             <div class="col-xl-4 col-lg-12">
               <div class="card card-chart">
