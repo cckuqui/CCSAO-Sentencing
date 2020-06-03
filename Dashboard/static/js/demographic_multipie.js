@@ -1,7 +1,18 @@
-// d3.json("general_demographics.json").then(function(demoData) {
-//     console.log("yay!");
-//     console.log(demoData);
-// });
+d3.json("./static/data.json").then(function (data) {
+    // console.log("yay!");
+    // console.log(data.slice(0, 5));
+
+    console.log(
+        _.chain(data)
+          // Group the elements of Array based on `color` property
+          .groupBy("race")
+          // `key` is group's name (color), `value` is the array of objects
+          .map((value, key) => ({ race: key, participants: value }))
+          .value()
+      );
+    // Object.entries(data).forEach((d) => )
+
+});
 
 // d3.json("general_demographics.json").then(function(data) {
 //    var total_charges = Object.keys(data).length;
