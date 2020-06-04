@@ -8,7 +8,7 @@ d3.json("./static/offense_multi.json").then(function (data) {
     .groupBy("court_name")
     .map((value, key) => ({"label":key,"value":value.length,"category": (
       _.chain(value)
-      .groupBy("sentece_type")
+      .groupBy("sentence_type")
       .map((value2, key2) => ({"label":key2,"value": value2.length}))
       .value()
     )}))
@@ -56,7 +56,7 @@ d3.json("./static/offense_multi.json").then(function (data) {
                     "theme": "fusion"
                 },
                 "category": [{
-                    "label": "Male",
+                    "label": "Sentence types",
                     "color":"#CCCCCC",
                     "value": total_sentence,
                     "tooltext": "Total Males, $value, $percentValue",
