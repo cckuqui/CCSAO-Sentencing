@@ -1,44 +1,49 @@
 d3.json("./static/offense_multi.json").then(function (data) {
     
-    console.log(data);
-    console.log('=======================');
-        
-    var offense = 
-    _.chain(data)
+    var data1 = data.filter(p => (p.sentence_type == "Incarceration") | (p.sentence_type == "Probation/Supervision"));
+    
+    var sentences1 = 
+    _.chain(data1)
+    .groupBy("sentence_type")
+    .map((value, key) => ({"label":key}))
+    .value();
+    
+    var off_sentence1 = 
+    _.chain(data1)
     .groupBy("offense_category")
-    .map((value, key) => ({"label":key,"value":value.length,"category": (
+    .map((value, key) => ({"seriesname":key,"data": (
       _.chain(value)
       .groupBy("sentence_type")
-      .map((value2, key2) => ({"label":key2,"value": value2.length}))
+      .map((value2, key2) => ({"value": value2.length}))
       .value()
     )}))
     .value();
 
-    console.log(offense);
-
-    // var mmulti_level = 
-    // _.chain(male)
-    // .groupBy("race")
-    // .map((value, key) => ({"label":key,"value":value.length,"category": (
-    //   _.chain(value)
-    //   .groupBy("age_bins")
-    //   .map((value2, key2) => ({"label":key2,"value": value2.length}))
-    //   .value()
-    // )}))
-    // .value();
-
-    // console.log(mmulti_level);
-    // console.log('=======================');
-
-    var total_males = 68372
-    // var total_females = 8488
+    var data2 = data.filter(p => (p.sentence_type != "Incarceration") | (p.sentence_type != "Probation/Supervision"));
+    
+    var sentences2 = 
+    _.chain(data2)
+    .groupBy("sentence_type")
+    .map((value, key) => ({"label":key}))
+    .value();
+    
+    var off_sentence2 = 
+    _.chain(data2)
+    .groupBy("offense_category")
+    .map((value, key) => ({"seriesname":key,"data": (
+      _.chain(value)
+      .groupBy("sentence_type")
+      .map((value2, key2) => ({"value": value2.length}))
+      .value()
+    )}))
+    .value();
 
     FusionCharts.ready(function(){
-        var chartObj = new FusionCharts({
-            type: 'multilevelpie',
-            renderAt: 'oc_multipie',
-            width: '900',
-            height: '900',
+        var chartObj1 = new FusionCharts({
+            type: 'msstackedcolumn2d',
+            renderAt: 'oc_multipie1',
+            width: '450',
+            height: '1000',
             dataFormat: 'json',
             dataSource: {
                 "chart": {
@@ -48,119 +53,53 @@ d3.json("./static/offense_multi.json").then(function (data) {
                     "yaxisname": "Sales (In USD)",
                     "numberPrefix": "$",
                     "numbersuffix": "M",
-                    "theme": "fusion"
+                    "theme": "candy"
                 },
-                "categories": [{
-                    "category": [{
-                        "label": "Q1"
-                        },{
-                        "label": "Q2"
-                        },{
-                        "label": "Q3"
-                        },{
-                        "label": "Q4"
-                        }]
+                "categories": [
+                    {
+                        "category": sentences1
                     }
                 ],
                 "dataset": [
                     {
-                        "dataset": [
-                            {
-                                "seriesname": "Processed Food",
-                                "data": [
-                                    {
-                                        "value": "30"
-                                    },
-                                    {
-                                        "value": "26"
-                                    },
-                                    {
-                                        "value": "29"
-                                    },
-                                    {
-                                        "value": "31"
-                                    }
-                                ]
-                            },
-                            {
-                                "seriesname": "Un-Processed Food",
-                                "data": [
-                                    {
-                                        "value": "21"
-                                    },
-                                    {
-                                        "value": "28"
-                                    },
-                                    {
-                                        "value": "39"
-                                    },
-                                    {
-                                        "value": "41"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "dataset": [
-                            {
-                                "seriesname": "Electronics",
-                                "data": [
-                                    {
-                                        "value": "27"
-                                    },
-                                    {
-                                        "value": "25"
-                                    },
-                                    {
-                                        "value": "28"
-                                    },
-                                    {
-                                        "value": "26"
-                                    }
-                                ]
-                            },
-                            {
-                                "seriesname": "Apparels",
-                                "data": [
-                                    {
-                                        "value": "17"
-                                    },
-                                    {
-                                        "value": "15"
-                                    },
-                                    {
-                                        "value": "18"
-                                    },
-                                    {
-                                        "value": "16"
-                                    }
-                                ]
-                            },
-                            {
-                                "seriesname": "Others",
-                                "data": [
-                                    {
-                                        "value": "12"
-                                    },
-                                    {
-                                        "value": "17"
-                                    },
-                                    {
-                                        "value": "16"
-                                    },
-                                    {
-                                        "value": "15"
-                                    }
-                                ]
-                            }
-                        ]
+                        "dataset": off_sentence1
                     }
                 ]
             }  
         });
 
-    chartObj.render();
+        var chartObj2 = new FusionCharts({
+            type: 'msstackedcolumn2d',
+            renderAt: 'oc_multipie2',
+            width: '950',
+            height: '1000',
+            dataFormat: 'json',
+            dataSource: {
+                "chart": {
+                    "caption": "Product-wise break-up of quarterly revenue in last year",
+                    "subcaption": "Harry's SuperMart",
+                    "xaxisname": "Quarter",
+                    "yaxisname": "Sales (In USD)",
+                    "numberPrefix": "$",
+                    "numbersuffix": "M",
+                    "theme": "candy"
+                },
+                "categories": [
+                    {
+                        "category": sentences2
+                    }
+                ],
+                "dataset": [
+                    {
+                        "dataset": off_sentence2
+                    }
+                ]
+            }  
+        });
+
+
+    chartObj1.render();
+    chartObj2.render();
 
     });
 
