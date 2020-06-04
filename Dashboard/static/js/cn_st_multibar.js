@@ -38,19 +38,19 @@ d3.json("./static/offense_multi.json").then(function (data) {
     console.log(sentence);
     console.log('=======================');
 
-    var sentence2 = 
-    _.chain(data)
-    .groupBy("sentence_type")
-    .map((value, key) => ({"seriesname":key,"data": (
-      _.chain(value)
-      .groupBy("court_name")
-      .map((value2, key2) => ({"distric":key2,"value": value2.length}))
-      .value()
-    )}))
-    .value();
+    // var sentence2 = 
+    // _.chain(data)
+    // .groupBy("sentence_type")
+    // .map((value, key) => ({"seriesname":key,"data": (
+    //   _.chain(value)
+    //   .groupBy("court_name")
+    //   .map((value2, key2) => ({"distric":key2,"value": value2.length}))
+    //   .value()
+    // )}))
+    // .value();
 
-    console.log(sentence2);
-    console.log('=======================');
+    // console.log(sentence2);
+    // console.log('=======================');
 
     // var offense = 
     // _.chain(data)
