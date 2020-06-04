@@ -13,10 +13,10 @@ d3.json("./static/participants.json").then(function (data) {
     var fmulti_level = 
     _.chain(female)
     .groupBy("race")
-    .map((value, key) => ({"label":key,"value":value.length ,"category": (
+    .map((value, key) => ({"label":key,"value":value.length,"category": (
       _.chain(value)
       .groupBy("age_bins")
-      .map((value2, key2) => ({"label":key2, "value": value2.length}))
+      .map((value2, key2) => ({"label":key2,"value": value2.length}))
       .value()
     )}))
     .value();
@@ -26,10 +26,10 @@ d3.json("./static/participants.json").then(function (data) {
     var mmulti_level = 
     _.chain(male)
     .groupBy("race")
-    .map((value, key) => ({"label":key,"value":value.length ,"category": (
+    .map((value, key) => ({"label":key,"value":value.length,"category": (
       _.chain(value)
       .groupBy("age_bins")
-      .map((value2, key2) => ({"label":key2, "value": value2.length}))
+      .map((value2, key2) => ({"label":key2,"value": value2.length}))
       .value()
     )}))
     .value();
@@ -57,7 +57,6 @@ d3.json("./static/participants.json").then(function (data) {
                     "pieborderthickness": "2",
                     "hoverfillcolor": "#CCCCCC",
                     "piebordercolor": "#FFFFFF",
-                    "hoverfillcolor": "#CCCCCC",
                     "plottooltext": "$label, $value individuals, $percentValue",
                     "bgColor": "#202940",
                     //Theme
@@ -65,7 +64,7 @@ d3.json("./static/participants.json").then(function (data) {
                 },
                 "category": [{
                     "label": "Male",
-                    "color": "#f8bd19",
+                    "color":"#CCCCCC",
                     "value": total_males,
                     "tooltext": "Total Males, $value, $percentValue",
                     "category": mmulti_level
@@ -88,7 +87,6 @@ d3.json("./static/participants.json").then(function (data) {
                     "pieborderthickness": "2",
                     "hoverfillcolor": "#CCCCCC",
                     "piebordercolor": "#FFFFFF",
-                    "hoverfillcolor": "#CCCCCC",
                     "plottooltext": "$label, $value individuals, $percentValue",
                     "bgColor": "#202940",
                     //Theme
@@ -96,7 +94,7 @@ d3.json("./static/participants.json").then(function (data) {
                 },
                 "category": [{
                     "label": "Female",
-                    "color": "#33ccff",
+                    "color": "#CCCCCC",
                     "value": total_females,
                     "tooltext": "Total Females, $value, $percentValue",
                     "category": fmulti_level
