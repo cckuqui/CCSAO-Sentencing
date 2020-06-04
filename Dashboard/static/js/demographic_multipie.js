@@ -42,15 +42,15 @@ d3.json("./static/participants.json").then(function (data) {
     var total_females = 8488
 
     FusionCharts.ready(function(){
-        var chartObj = new FusionCharts({
+        var chartObj_male = new FusionCharts({
             type: 'multilevelpie',
-            renderAt: 'multi_demographics',
+            renderAt: 'multi_demographics_male',
             width: '900',
             height: '900',
             dataFormat: 'json',
             dataSource: {
                 "chart": {
-                    "caption": "Total Participants by Gender, Race and Age Group",
+                    "caption": "Total Male Participants by Race and Age Group",
                     "subcaption": "2015-2019",
                     "showPlotBorder": "1",
                     "piefillalpha": "80",
@@ -64,27 +64,48 @@ d3.json("./static/participants.json").then(function (data) {
                     "theme": "fusion"
                 },
                 "category": [{
-                    "label": "Total Participants",
-                    "color": "#ffffff",
-                    "value": total_participants,
-                    "category": [{
-                        "label": "Male",
-                        "color": "#f8bd19",
-                        "value": total_males,
-                        "tooltext": "Total Males, $value, $percentValue",
-                        "category": mmulti_level
-                    }, {
-                        "label": "Female",
-                        "color": "#33ccff",
-                        "value": total_females,
-                        "tooltext": "Total Females, $value, $percentValue",
-                        "category": fmulti_level
-                    }]
+                    "label": "Male",
+                    "color": "#f8bd19",
+                    "value": total_males,
+                    "tooltext": "Total Males, $value, $percentValue",
+                    "category": mmulti_level
                 }]
             }   
         });
 
-    chartObj.render();
+        var chartObj_female = new FusionCharts({
+            type: 'multilevelpie',
+            renderAt: 'multi_demographics_female',
+            width: '900',
+            height: '900',
+            dataFormat: 'json',
+            dataSource: {
+                "chart": {
+                    "caption": "Total Female Participants by Race and Age Group",
+                    "subcaption": "2015-2019",
+                    "showPlotBorder": "1",
+                    "piefillalpha": "80",
+                    "pieborderthickness": "2",
+                    "hoverfillcolor": "#CCCCCC",
+                    "piebordercolor": "#FFFFFF",
+                    "hoverfillcolor": "#CCCCCC",
+                    "plottooltext": "$label, $value individuals, $percentValue",
+                    "bgColor": "#202940",
+                    //Theme
+                    "theme": "fusion"
+                },
+                "category": [{
+                    "label": "Female",
+                    "color": "#33ccff",
+                    "value": total_females,
+                    "tooltext": "Total Females, $value, $percentValue",
+                    "category": fmulti_level
+                }]
+            }   
+        });
+
+    chartObj_male.render();
+    chartObj_female.render();
 
     });
 
