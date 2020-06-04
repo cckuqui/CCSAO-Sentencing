@@ -56,7 +56,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #ffffff;
   text-align: left;
   background-color: #fafafa;
 }
@@ -76,15 +76,15 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+h6,
+p {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+  color: #ffffff;              
 }
 
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
 
 abbr[title],
 abbr[data-original-title] {
@@ -477,7 +477,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #ffffff;
   text-align: left;
   background-color: #fafafa;
 }
@@ -792,7 +792,6 @@ h6,
   font-family: inherit;
   font-weight: 400;
   line-height: 1.2;
-  color: inherit;
 }
 
 h1,
@@ -16879,7 +16878,7 @@ thead.thead-inverse th,
 
 body {
   background-color: #eee;
-  color: #3C4858;
+  color: #ffffff;
   font-weight: 300;
 }
 
@@ -20644,7 +20643,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .dark-edition .card-stats .card-header .card-category:not([class*="text-"]) {
-  color: #8b92a9;
+  color: #ffffff;
 }
 
 .dark-edition .card-stats .card-header+.card-footer {
@@ -20656,7 +20655,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .dark-edition .card-chart .card-body .card-category {
-  color: #606477;
+  color: #ffffff;
 }
 
 .dark-edition .card-chart .card-body .card-category span {
@@ -21980,7 +21979,7 @@ fieldset[disabled][disabled] .dark-edition .has-error .form-control,
 }
 
 .dark-edition .places-buttons .card-title .category {
-  color: #606477;
+  color: #ffffff;
 }
 
 .dark-edition .list-group-item {

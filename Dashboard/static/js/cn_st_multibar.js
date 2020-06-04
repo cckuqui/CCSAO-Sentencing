@@ -93,7 +93,8 @@ d3.json("./static/offense_multi.json").then(function (data) {
                   "xAxisname": "Judicial Districs",
                   "yAxisName": "# of Cases by Sentence Types",
                   "plotFillAlpha": "80",
-                  "theme": "fusion",
+                  "theme": "candy",
+                  "bgColor": "#1a2035",
                   "yAxisMaxValue": 23000
               },
               "categories": [{
