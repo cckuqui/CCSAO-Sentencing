@@ -72,13 +72,13 @@ d3.json("./static/participants.json").then(function (data) {
                         "color": "#f8bd19",
                         "value": total_males,
                         "tooltext": "Total Males, $value, $percentValue",
-                        "category": [mmulti_level]
+                        "category": mmulti_level
                     }, {
                         "label": "Female",
                         "color": "#33ccff",
                         "value": total_females,
                         "tooltext": "Total Females, $value, $percentValue",
-                        "category": [fmulti_level]
+                        "category": fmulti_level
                     }]
                 }]
             }   
