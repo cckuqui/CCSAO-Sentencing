@@ -8,52 +8,29 @@ d3.json("./static/participants.json").then(function (data) {
     console.log('=======================');
     // console.log(data.race);
     
-    var try1 = _.groupBy(data, function(i) {
-        return i.gender;});
-
-    console.log(try1);
-    console.log('=======================');
+    var female = data.filter(person => person.gender == "Female");
     
-    var try2 = _.forEach(try1, function(value, key) {
-            try1[key] = _.groupBy(try1[key], function(i) {
-              return i.race;
-            });
-          });
     
-    console.log(try2);
+    console.log(female);
     console.log('=======================');
 
+    var fmulti_level = 
+    _.chain(female)
+    .groupBy("race")
+    .map((value, key) => ({"label":key,"value":value.length ,"category": (
+      _.chain(value)
+      .groupBy("age_bins")
+      .map((value2, key2) => ({"label":key2, "value": value2.length}))
+      .value()
+    )}))
+    .value();
 
-    var try3 = _.forEach(try2)
-
-    // var try3 = _.forEach(try2, function(value, key) {
-    //         try2[key] = _.groupBy(try2[key], function(i) {
-    //           return i.age_bins;
-    //         });
-    //       });
-    
-    console.log(try2);
-    
-    
-    
-    var race = _.chain(data)
-        .groupBy("race")
-        .map((value, key) => ({race:key, participants: value.length}))
-        .value();
-    console.log(race);
+    console.log(fmulti_level);
     console.log('=======================');
-    // console.log('=======================');
-    
-    // var value = []
-    // all.map(x => {
-    //   value.push(x.participants);
-    // });
-  
-    // var label = []
-    // all.map(x => {
-    //   label.push(x.race);
-    // });
-  
-    // console.log(label);
-    // console.log(value);
+
+// data: [race]
+
+
+
+
 });

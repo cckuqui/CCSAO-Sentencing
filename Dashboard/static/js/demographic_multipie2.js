@@ -37,95 +37,88 @@ width: '900',
 height: '900',
 dataFormat: 'json',
 dataSource: {
-"chart": {
-    "caption": "Total Charges by Age, Race and Gender",
-    "subcaption": "2000-2019",
-    "showPlotBorder": "1",
-    "piefillalpha": "80",
-    "pieborderthickness": "2",
-    "hoverfillcolor": "#CCCCCC",
-    "piebordercolor": "#FFFFFF",
-    "hoverfillcolor": "#CCCCCC",
-    "plottooltext": "$label, $value individuals, $percentValue",
-    "bgColor": "#202940",
-    //Theme
-    "theme": "fusion"
-},
-"category": [{
-    "label": "Total Participants",
-    "color": "#ffffff",
-    "value": total_participants,
+    "chart": {
+        "caption": "Total Charges by Age, Race and Gender",
+        "subcaption": "2000-2019",
+        "showPlotBorder": "1",
+        "piefillalpha": "80",
+        "pieborderthickness": "2",
+        "hoverfillcolor": "#CCCCCC",
+        "piebordercolor": "#FFFFFF",
+        "hoverfillcolor": "#CCCCCC",
+        "plottooltext": "$label, $value individuals, $percentValue",
+        "bgColor": "#202940",
+        //Theme
+        "theme": "fusion"
+    },
     "category": [{
-        "label": "Male",
-        "color": "#f8bd19",
-        "value": total_males,
-        "tooltext": "Total Males, $value, $percentValue",
+        "label": "Total Participants",
+        "color": "#ffffff",
+        "value": total_participants,
         "category": [{
-            "label": "Black",
+            "label": "Male",
             "color": "#f8bd19",
-            "value": black_males,
+            "value": total_males,
+            "tooltext": "Total Males, $value, $percentValue",
+            "category": [{
+                "label": "Black",
+                "value": black_males,
+            }, {
+                "label": "Hispanic/Latino", 
+                "value": hispanic_males,
+            }, {
+                "label": "White", 
+                "value": white_males,
+            }, {
+                "label": "Asian",  
+                "value": asian_males,
+            }, {
+                "label": "Unknown",  
+                "value": unknown_males,
+            }, {
+                "label": "American Indian",  
+                "value": american_indian_males,
+            }, {
+                "label": "Biracial",  
+                "value": biracial_males,
+            }]
         }, {
-            "label": "Hispanic/Latino",
-            "color": "#f8bd19",
-            "value": hispanic_males,
-        }, {
-            "label": "White",
-            "color": "#f8bd19",
-            "value": white_males,
-        }, {
-            "label": "Asian",
-            "color": "#f8bd19",
-            "value": asian_males,
-        }, {
-            "label": "Unknown",
-            "color": "#f8bd19",
-            "value": unknown_males,
-        }, {
-            "label": "American Indian",
-            "color": "#f8bd19",
-            "value": american_indian_males,
-        }, {
-            "label": "Biracial",
-            "color": "#f8bd19",
-            "value": biracial_males,
+            "label": "Female",
+            "color": "#33ccff",
+            "value": total_females,
+            "tooltext": "Total Females, $value, $percentValue",
+            "category": [{
+                "label": "Black",
+  
+                "value": black_females,
+            }, {
+                "label": "Hispanic/Latino",
+  
+                "value": hispanic_females,
+            }, {
+                "label": "White",
+  
+                "value": white_females,
+            }, {
+                "label": "Asian",
+  
+                "value": asian_females,
+            }, {
+                "label": "Unknown",
+  
+                "value": unknown_females,
+            }, {
+                "label": "American Indian",
+  
+                "value": american_indian_females,
+            }, {
+                "label": "Biracial",
+  
+                "value": biracial_females,
+                }]
+            }]
         }]
-    }, {
-        "label": "Female",
-        "color": "#33ccff",
-        "value": total_females,
-        "tooltext": "Total Females, $value, $percentValue",
-        "category": [{
-            "label": "Black",
-            "color": "#33ccff",
-            "value": black_females,
-        }, {
-            "label": "Hispanic/Latino",
-            "color": "#33ccff",
-            "value": hispanic_females,
-        }, {
-            "label": "White",
-            "color": "#33ccff",
-            "value": white_females,
-        }, {
-            "label": "Asian",
-            "color": "#33ccff",
-            "value": asian_females,
-        }, {
-            "label": "Unknown",
-            "color": "#33ccff",
-            "value": unknown_females,
-        }, {
-            "label": "American Indian",
-            "color": "#33ccff",
-            "value": american_indian_females,
-        }, {
-            "label": "Biracial",
-            "color": "#33ccff",
-            "value": biracial_females,
-        }]
-    }]
-}]
-}
+    }   
 }
 );
     chartObj.render();
