@@ -19,7 +19,10 @@ d3.json("./static/offense_multi.json").then(function (data) {
     )}))
     .value();
 
-    var data2 = data.filter(p => (p.sentence_type != "Incarceration") | (p.sentence_type != "Probation/Supervision"));
+    var data2 = data.filter(p => (p.sentence_type == "Conditional Discharge") | 
+        (p.sentence_type == "Death") |
+        (p.sentence_type == "Cook County Boot Camp") |
+        (p.sentence_type == "Inpatient Mental Health Services"));
     
     var sentences2 = 
     _.chain(data2)
@@ -41,18 +44,19 @@ d3.json("./static/offense_multi.json").then(function (data) {
     FusionCharts.ready(function(){
         var chartObj1 = new FusionCharts({
             type: 'msstackedcolumn2d',
-            renderAt: 'oc_multipie1',
-            width: '450',
+            renderAt: 'oc_multicolumn1',
+            width: '600',
             height: '1000',
             dataFormat: 'json',
             dataSource: {
                 "chart": {
-                    "caption": "Product-wise break-up of quarterly revenue in last year",
-                    "subcaption": "Harry's SuperMart",
-                    "xaxisname": "Quarter",
-                    "yaxisname": "Sales (In USD)",
-                    "numberPrefix": "$",
-                    "numbersuffix": "M",
+                    "caption": "Offense Category charges by Sentence Type",
+                    "subcaption": "Incarceration and Probation/Supervision",
+                    "xaxisname": "Sentence Types",
+                    "yaxisname": "Offense Category (number of charges)",
+                    // "numberPrefix": "$",
+                    // "numbersuffix": "M",
+                    "bgColor": "#1a2035",
                     "theme": "candy"
                 },
                 "categories": [
@@ -70,18 +74,19 @@ d3.json("./static/offense_multi.json").then(function (data) {
 
         var chartObj2 = new FusionCharts({
             type: 'msstackedcolumn2d',
-            renderAt: 'oc_multipie2',
-            width: '950',
+            renderAt: 'oc_multicolumn2',
+            width: '600',
             height: '1000',
             dataFormat: 'json',
             dataSource: {
                 "chart": {
-                    "caption": "Product-wise break-up of quarterly revenue in last year",
-                    "subcaption": "Harry's SuperMart",
-                    "xaxisname": "Quarter",
-                    "yaxisname": "Sales (In USD)",
-                    "numberPrefix": "$",
-                    "numbersuffix": "M",
+                    "caption": "Offense Category charges by Sentence Type",
+                    "subcaption": "Other Sentence types",
+                    "xaxisname": "Sentence Types",
+                    "yaxisname": "Offense Category (number of charges)",
+                    // "numberPrefix": "$",
+                    // "numbersuffix": "M",
+                    "bgColor": "#1a2035",
                     "theme": "candy"
                 },
                 "categories": [

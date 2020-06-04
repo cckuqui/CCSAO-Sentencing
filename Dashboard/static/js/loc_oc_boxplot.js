@@ -1,41 +1,38 @@
-// Create two arrays, each of which will hold data for a different trace
-var y0 = [];
-var y1 = [];
+d3.json("./static/offense_box.json").then(function (data) {
+  var data = data.filter(n => (n.length_of_case_in_days >= 0) & (n.length_of_case_in_days <= 5000));
+  
+  console.log(data)
 
-// Fill each of the above arrays with randomly generated data
-for (var i = 0; i < 50; i++) {
-  y0.push(Math.random());
-  y1.push(Math.random() + 1);
-}
+  var traces = 
+  _.chain(data)
+  .groupBy("offense_category")
+  .map((value, key) => (key = {
+    name:key,
+    // boxpoints:"all",
+    type:"box",
+    x:value.map(x => {
+      return x.length_of_case_in_days;
+    })  
+  }))
+  .value();
 
-// Create a trace object with the data in `y0`
-var trace1 = {
-  y: y0,
-  boxpoints: "all",
-  type: "box"
-};
+  console.log(traces);
 
-// Create a trace object with the data in `y1`
-var trace2 = {
-  y: y1,
-  boxpoints: "all",
-  type: "box"
-};
+  // Create a data array with the above two traces
+  var data1 = traces;
 
-// Create a data array with the above two traces
-var data = [trace1, trace2];
+  // Use `layout` to define a title
+  var layout = {
+    title: "Length of cases by Offense Category",
+    width: 1500,
+    height: 1000,
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    font: {
+      color: 'white'
+  }
+  };
 
-// Use `layout` to define a title
-var layout = {
-  title: "Basic Box Plot",
-  width: 1050,
-  height: 500,
-  paper_bgcolor: 'rgba(0,0,0,0)',
-  plot_bgcolor: 'rgba(0,0,0,0)', 
-  font: {
-    color: 'white'
-}
-};
-
-// Render the plot to the `plot1` div
-Plotly.newPlot("loc_oc_boxplot", data, layout);
+  // Render the plot to the `plot1` div
+  Plotly.newPlot("loc_oc_boxplot", data1, layout);
+});
