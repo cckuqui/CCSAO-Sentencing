@@ -2,20 +2,12 @@
 
 {% block title %}Cook County Sentencing - Offenses Information{% endblock %}
 
-  {% block main_panel %}
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Map</a>
-          </div>
-        </div>
-        <div class="copyright float-right">
-          <p>hey</p>
-        </div>
-      </nav>
+{% block page_header %}Comparisons by Offense Category{% endblock %}
 
+{% block main_panel %}
       <!-- Body -->
+    <div class="content">
+      <div class="container-fluid">
       <div class="col-xl-12 col-lg-12">
         <div class="card card-chart">               
           <div id="oc_multipie"></div>                
@@ -47,6 +39,8 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
         {% endblock %}
 

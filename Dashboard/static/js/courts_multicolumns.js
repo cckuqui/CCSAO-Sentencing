@@ -1,17 +1,5 @@
 d3.json("./static/offense_multi.json").then(function (data) {
     
-    function compare(a, b) {
-        let comparison = 0;
-        if (a.court_name > b.court_name) {
-          comparison = 1;
-        } else if (a.court_name < b.court_name) {
-          comparison = -1;
-        }
-        return comparison;
-      }
-      
-    data = data.sort(compare);
-
     console.log(data);
     console.log('=======================');
     
@@ -21,16 +9,16 @@ d3.json("./static/offense_multi.json").then(function (data) {
     .map((value, key) => ({"label":key,}))
     .value();
     
-    // console.log(courts_name);
-    // console.log('=======================');
+    console.log(courts_name);
+    console.log('=======================');
     
     var sentence = 
     _.chain(data)
     .groupBy("sentence_type")
-    .map((value, key) => ({"seriesname":key,"data": (
+    .map((value, key) => ({"label":key,"category": (
       _.chain(value)
       .groupBy("court_name")
-      .map((value2, key2) => ({"value": value2.length}))
+      .map((value2, key2) => ({"label":key2,"value": value2.length}))
       .value()
     )}))
     .value();
@@ -38,33 +26,19 @@ d3.json("./static/offense_multi.json").then(function (data) {
     console.log(sentence);
     console.log('=======================');
 
-    var sentence2 = 
+    var offense = 
     _.chain(data)
-    .groupBy("sentence_type")
-    .map((value, key) => ({"seriesname":key,"data": (
+    .groupBy("court_name")
+    .map((value, key) => ({"label":key,"category": (
       _.chain(value)
-      .groupBy("court_name")
-      .map((value2, key2) => ({"distric":key2,"value": value2.length}))
+      .groupBy("offense_category")
+      .map((value2, key2) => ({"label":key2,"value": value2.length}))
       .value()
     )}))
     .value();
 
-    console.log(sentence2);
+    console.log(offense);
     console.log('=======================');
-
-    // var offense = 
-    // _.chain(data)
-    // .groupBy("court_name")
-    // .map((value, key) => ({"label":key,"category": (
-    //   _.chain(value)
-    //   .groupBy("offense_category")
-    //   .map((value2, key2) => ({"label":key2,"value": value2.length}))
-    //   .value()
-    // )}))
-    // .value();
-
-    // console.log(offense);
-    // console.log('=======================');
 
     // var value = []
     // age_bins.map(x => {
@@ -76,13 +50,18 @@ d3.json("./static/offense_multi.json").then(function (data) {
     //   courts_name.push({"label":x.label});
     // });
 
+    console.log(courts_name);
+    console.log('=======================');
+
+
+
     var total_participants = 69954
     var total_sentence = 614466
     var total_offense = 8488
 
     FusionCharts.ready(function(){
         var chartObj_sentence = new FusionCharts({
-            type: 'mscolumn2d',
+            type: ' mscolumn2d',
             renderAt: 'cn_st_multibar',
             width: '900',
             height: '900',
@@ -93,13 +72,66 @@ d3.json("./static/offense_multi.json").then(function (data) {
                   "xAxisname": "Judicial Districs",
                   "yAxisName": "# of Cases by Sentence Types",
                   "plotFillAlpha": "80",
-                  "theme": "fusion",
-                  "yAxisMaxValue": 23000
+                  "theme": "fusion"
               },
               "categories": [{
                   "category": courts_name
                   }],
-              "dataset": sentence
+              "dataset": [{
+                      "seriesname": "Previous Year",
+                      "data": [
+                          {"value": "10000"},
+                          {"value": "11500"},
+                          {
+                              "value": "12500"
+                          },
+                          {
+                              "value": "15000"
+                          }
+                      ]
+                  },
+                  {
+                      "seriesname": "Current Year",
+                      "data": [
+                          {
+                              "value": "25400"
+                          },
+                          {
+                              "value": "29800"
+                          },
+                          {
+                              "value": "21800"
+                          },
+                          {
+                              "value": "26800"
+                          }
+                      ]
+                  }
+              ],
+              "trendlines": [
+                  {
+                      "line": [
+                          {
+                              "startvalue": "12250",
+                              "color": "#0075c2",
+                              "displayvalue": "Previous{br}Average",
+                              "valueOnRight": "1",
+                              "thickness": "1",
+                              "showBelow": "1",
+                              "tooltext": "Previous year quarterly target  : $13.5K"
+                          },
+                          {
+                              "startvalue": "25950",
+                              "color": "#1aaf5d",
+                              "displayvalue": "Current{br}Average",
+                              "valueOnRight": "1",
+                              "thickness": "1",
+                              "showBelow": "1",
+                              "tooltext": "Current year quarterly target  : $23K"
+                          }
+                      ]
+                  }
+              ]
           }   
         });
 

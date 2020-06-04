@@ -2,22 +2,13 @@
 
 {% block title %}Cook County Sentencing - Information about Cases{% endblock %}
 
+{% block page_header %}Comparisions by Cases{% endblock %}
+
   {% block main_panel %}
 
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Cases - Length in days</a>
-          </div>
-        </div>
-        <div class="copyright float-right">
-          <p>hey</p>
-        </div>
-      </nav>
-
-
       <!-- Body -->
+  <div class="content">
+    <div class="container-fluid">
       <div class="col-xl-12 col-lg-12">
         <div class="card card-chart">               
           <div id="loc_oc_boxplot"></div>                
@@ -49,6 +40,8 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
       {% endblock %}
 
       <!--   Core JS Files   -->
