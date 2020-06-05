@@ -51,6 +51,7 @@ d3.json("./static/offense_multi.json").then(function (data) {
                     "subcaption": "Incarceration and Probation/Supervision",
                     "xaxisname": "Sentence Types",
                     "yaxisname": "Offense Category (number of charges)",
+                    // "xAxisLineThickness": 150,
                     // "numberPrefix": "$",
                     // "numbersuffix": "M",
                     "bgColor": "#1a2035",
