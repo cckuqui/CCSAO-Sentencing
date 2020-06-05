@@ -28,6 +28,12 @@ d3.json("./static/offense_box.json").then(function (data) {
     height: 1000,
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',
+    margin: {
+      l:255
+    },
+    // hoverlabel: {
+    //   namelength: -1
+    // },
     font: {
       color: 'white'
   }

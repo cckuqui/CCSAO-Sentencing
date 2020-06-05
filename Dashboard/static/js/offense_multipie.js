@@ -19,10 +19,7 @@ d3.json("./static/offense_multi.json").then(function (data) {
     )}))
     .value();
 
-    var data2 = data.filter(p => (p.sentence_type == "Conditional Discharge") | 
-        (p.sentence_type == "Death") |
-        (p.sentence_type == "Cook County Boot Camp") |
-        (p.sentence_type == "Inpatient Mental Health Services"));
+    var data2 = data.filter(p => (p.sentence_type !== "Incarceration") && (p.sentence_type !== "Probation/Supervision"));
     
     var sentences2 = 
     _.chain(data2)

@@ -1,5 +1,17 @@
 d3.json("./static/participants.json").then(function (data) {
     
+    function compare(a, b) {
+        let comparison = 0;
+        if (a.age_bins > b.age_bins) {
+          comparison = 1;
+        } else if (a.age_bins < b.age_bins) {
+          comparison = -1;
+        }
+        return comparison;
+      }
+      
+    data = data.sort(compare);
+    
     console.log(data);
     console.log('=======================');
         
