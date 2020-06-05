@@ -1,11 +1,12 @@
-d3.json("./static/css/assets/js/scatter_length.json").then((importedData) => {
-  console.log(importedData);
+d3.json("../static/css/assets/js/scatter_length.json").then((data) => {
+  // var importedData = importedData.filter(n => (n.length_of_case_in_days >= 0) & (n.length_of_case_in_days <= 5000));
+  console.log(data);
   var length_days = []
   var years = []
-  length_days = Object.values(importedData.length_of_case_in_days);
-  years = Object.values(importedData.year);
-  console.log(length_days);
-  console.log(years);
+  length_days = Object.values(data.length_of_case_in_days);
+  years = Object.values(data.year);
+  // console.log(length_days);
+  // console.log(years);
 
 
 var trace1 = {
@@ -23,9 +24,9 @@ var trace1 = {
   // };
   
   var layout = {
-    title: "Basic Scatter Plot",
-    width: 950,
-    height: 350,
+    title: "Length of Case vs. Length of Sentence Term",
+    width: 1400,
+    height: 600,
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)', 
     font: {
