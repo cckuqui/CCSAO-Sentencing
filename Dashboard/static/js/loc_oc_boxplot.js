@@ -24,7 +24,7 @@ d3.json("./static/offense_box.json").then(function (data) {
   // Use `layout` to define a title
   var layout = {
     title: "Length of cases by Offense Category",
-    width: 1500,
+    width: 1400,
     height: 1000,
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',

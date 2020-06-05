@@ -57,12 +57,12 @@ d3.json("./static/participants.json").then(function (data) {
         var chartObj_male = new FusionCharts({
             type: 'multilevelpie',
             renderAt: 'multi_demographics_male',
-            width: '600',
-            height: '600',
+            width: '500',
+            height: '500',
             dataFormat: 'json',
             dataSource: {
                 "chart": {
-                    "caption": "Total Male Participants by Race and Age Group",
+                    "caption": "Total Males Sentenced by Race and Age Group",
                     "subcaption": "2015-2019",
                     "showPlotBorder": "1",
                     "piefillalpha": "80",
@@ -87,12 +87,12 @@ d3.json("./static/participants.json").then(function (data) {
         var chartObj_female = new FusionCharts({
             type: 'multilevelpie',
             renderAt: 'multi_demographics_female',
-            width: '600',
-            height: '600',
+            width: '500',
+            height: '500',
             dataFormat: 'json',
             dataSource: {
                 "chart": {
-                    "caption": "Total Female Participants by Race and Age Group",
+                    "caption": "Total Females Sentenced by Race and Age Group",
                     "subcaption": "2015-2019",
                     "showPlotBorder": "1",
                     "piefillalpha": "80",

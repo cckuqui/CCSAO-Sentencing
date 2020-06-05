@@ -46,7 +46,7 @@ d3.json("./static/offense_multi.json").then(function (data) {
         var chartObj_sentence = new FusionCharts({
             type: 'mscolumn2d',
             renderAt: 'cn_st_multibar',
-            width: '900',
+            width: '1000',
             height: '900',
             dataFormat: 'json',
             dataSource: {
