@@ -28,6 +28,7 @@ d3.json("./static/offense_box.json").then(function (data) {
     height: 1000,
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',
+    legend: {orientation: 'h', side: 'top'},
     margin: {
       l:255
     },
