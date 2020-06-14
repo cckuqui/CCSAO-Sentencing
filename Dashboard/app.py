@@ -1,4 +1,7 @@
 from flask import Flask, Markup, render_template
+import sqlalchemy
+from flask import Flask, jsonify
+import pandas
 
 app = Flask(__name__)
 
@@ -9,7 +12,43 @@ def index():
 
 @app.route('/demographics')
 def demographics():
-    return render_template('demographics.html', item='demographics')
+    conn = f"postgres:{key}@localhost:5432/sentencing"
+    engine = create_engine(f'postgresql://{conn}')
+
+    session = Session(bind=engine)
+
+    query1 = 'select \
+	pa.age_bins, \
+    pa.gender, \
+    pa.race, \
+	fr.court_name, \
+	fr.offense_category, \
+	fr.sentence_type \
+    from ( \
+    select \
+		r.case_participant_id, \
+		max(court_name) court_name, \
+		o.offense_category, \
+		s.sentence_type \
+	from results r \
+	left join courts co \
+		on r.court_id = co.court_id \
+	left join offenses o \
+		on r.offense_id = o.offense_id \
+	left join sentences s \
+		on r.sentence_id = s.sentence_id \
+	group by ( \
+		o.offense_category, \
+		s.sentence_type, \
+		r.case_participant_id \
+	)) fr \
+    left join participants pa \
+	on fr.case_participant_id = pa.case_participant_id;'
+
+    filtered_demographics = pd.read_sql_query(query1,con=engine)
+
+    return jsonify(filtered_demographics)
+    # return render_template('demographics.html', item='demographics')
 
 # def line():
 #     line_labels=labels
@@ -32,9 +71,9 @@ def courts():
 def about():
     return render_template('about.html', item='about')
 
-@app.route('/data')
-def data():
-    return render_template('data.html', item='data')
+# @app.route('/data')
+# def data():
+#     return render_template('data.html', item='data')
 
 @app.route('/map')
 def map():
