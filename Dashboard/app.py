@@ -1,10 +1,15 @@
-from flask import Flask, Markup, render_template
-import sqlalchemy
-from flask import Flask, jsonify
-import pandas
+from flask import Flask, Markup, render_template, jsonify
+from password import key
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
+import pandas as pd
+import queries
+
 
 app = Flask(__name__)
-
+conn = f"postgres:{key}@localhost:5432/sentencing"
+engine = create_engine(f'postgresql://{conn}')
+session = Session(bind=engine)
 
 @app.route("/")
 def index():
@@ -12,48 +17,14 @@ def index():
 
 @app.route('/demographics')
 def demographics():
-    conn = f"postgres:{key}@localhost:5432/sentencing"
-    engine = create_engine(f'postgresql://{conn}')
+    return render_template('demographics.html', item='demographics')
 
-    session = Session(bind=engine)
+@app.route("/demographics/data")
+def data():
+	demographics = pd.read_sql_query(queries.simp_demo, con=engine)
+	
+	return demographics.to_json(orient='records')
 
-    query1 = 'select \
-	pa.age_bins, \
-    pa.gender, \
-    pa.race, \
-	fr.court_name, \
-	fr.offense_category, \
-	fr.sentence_type \
-    from ( \
-    select \
-		r.case_participant_id, \
-		max(court_name) court_name, \
-		o.offense_category, \
-		s.sentence_type \
-	from results r \
-	left join courts co \
-		on r.court_id = co.court_id \
-	left join offenses o \
-		on r.offense_id = o.offense_id \
-	left join sentences s \
-		on r.sentence_id = s.sentence_id \
-	group by ( \
-		o.offense_category, \
-		s.sentence_type, \
-		r.case_participant_id \
-	)) fr \
-    left join participants pa \
-	on fr.case_participant_id = pa.case_participant_id;'
-
-    filtered_demographics = pd.read_sql_query(query1,con=engine)
-
-    return jsonify(filtered_demographics)
-    # return render_template('demographics.html', item='demographics')
-
-# def line():
-#     line_labels=labels
-#     line_values=values
-#     return render_template('demographics.html', title='Bitcoin Monthly Price in USD', max=17000, labels=line_labels, values=line_values)
 
 @app.route('/offense_category')
 def offense_category():

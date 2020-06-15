@@ -1,20 +1,17 @@
-d3.json("./static/participants.json").then(function (data) {
-    
+d3.json("/demographics/data").then(function (data) {
+
     function compare(a, b) {
         let comparison = 0;
         if (a.age_bins > b.age_bins) {
-          comparison = 1;
+        comparison = 1;
         } else if (a.age_bins < b.age_bins) {
-          comparison = -1;
+        comparison = -1;
         }
         return comparison;
-      }
-      
-    data = data.sort(compare);
+    }
     
-    console.log(data);
-    console.log('=======================');
-        
+    data = data.sort(compare);
+            
     var female = data.filter(person => person.gender == "Female");
     var male = data.filter(person => person.gender == "Male");
     
@@ -26,10 +23,10 @@ d3.json("./static/participants.json").then(function (data) {
     _.chain(female)
     .groupBy("race")
     .map((value, key) => ({"label":key,"value":value.length,"category": (
-      _.chain(value)
-      .groupBy("age_bins")
-      .map((value2, key2) => ({"label":key2,"value": value2.length}))
-      .value()
+    _.chain(value)
+    .groupBy("age_bins")
+    .map((value2, key2) => ({"label":key2,"value": value2.length}))
+    .value()
     )}))
     .value();
 
@@ -39,10 +36,10 @@ d3.json("./static/participants.json").then(function (data) {
     _.chain(male)
     .groupBy("race")
     .map((value, key) => ({"label":key,"value":value.length,"category": (
-      _.chain(value)
-      .groupBy("age_bins")
-      .map((value2, key2) => ({"label":key2,"value": value2.length}))
-      .value()
+    _.chain(value)
+    .groupBy("age_bins")
+    .map((value2, key2) => ({"label":key2,"value": value2.length}))
+    .value()
     )}))
     .value();
 
@@ -118,6 +115,6 @@ d3.json("./static/participants.json").then(function (data) {
 
     });
 
-    
+        
 
-});
+    });
