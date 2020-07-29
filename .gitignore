@@ -1,7 +1,4 @@
-password.py
-key.py
 .ipynb_checkpoints/
 __pycache__/
 venv/
 .vscode/
-venv/
