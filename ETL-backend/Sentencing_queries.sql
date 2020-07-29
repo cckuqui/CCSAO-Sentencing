@@ -1,4 +1,4 @@
---For the dempgraphics graphs
+--For the demographics graphs
 SELECT participants.age_at_incident, participants.gender, participants.race, participants.age_bins, courts.court_name, offenses.offense_category, sentences.sentence_type
 FROM participants
 LEFT JOIN results ON participants.case_participant_id = results.case_participant_id
