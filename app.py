@@ -1,15 +1,11 @@
 from flask import Flask, Markup, render_template, jsonify
 from password import key
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
 import pandas as pd
-import queries
+import sqlite3
 
 
 app = Flask(__name__)
-conn = f"postgres:{key}@localhost:5432/sentencing"
-engine = create_engine(f'postgresql://{conn}')
-session = Session(bind=engine)
+conn = sqlite3.connect("sentencing.db")
 
 @app.route("/")
 def index():
@@ -21,9 +17,10 @@ def demographics():
 
 @app.route("/demographics/data")
 def data():
-	demographics = pd.read_sql_query(queries.simp_demo, con=engine)
-	
-	return demographics.to_json(orient='records')
+    demo = """select * from participants;"""
+    demographics = pd.read_sql_query(demo, con=conn)
+
+    return demographics.to_json(orient='records')
 
 
 @app.route('/offense_category')
