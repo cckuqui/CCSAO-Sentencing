@@ -9,24 +9,22 @@ CREATE TABLE "participants" (
     "gender" varchar,
     "race" varchar,
     "age_bins" varchar,
-    CONSTRAINT "pk_participants" 
-    PRIMARY KEY ("case_participant_id")
+CONSTRAINT "pk_participants" PRIMARY KEY ("case_participant_id")
 );
 
 CREATE TABLE "courts" (
     "court_id" varchar,
     "court_facility" varchar,
     "court_name" varchar,
-    CONSTRAINT "pk_courts" 
-    PRIMARY KEY ("court_id"
-     )
+CONSTRAINT "pk_courts" PRIMARY KEY ("court_id")
 );
 
 CREATE TABLE "offenses" (
-    "offense_id" integer,
-    "offense_category" varchar,
-    CONSTRAINT "pk_offenses" 
-    PRIMARY KEY ("offense_id")
+ "offense_id" integer,
+ "offense_category" varchar,
+ CONSTRAINT "pk_offenses" PRIMARY KEY (
+ "offense_id"
+ )
 );
 
 CREATE TABLE "sentences" (
@@ -36,8 +34,7 @@ CREATE TABLE "sentences" (
     "commitment_unit" varchar,
     "month" float,
     "year" float,
-    CONSTRAINT "pk_sentences" 
-    PRIMARY KEY ("sentence_id")
+ CONSTRAINT "pk_sentences" PRIMARY KEY ("sentence_id")
 );
 
 CREATE TABLE "results" (
@@ -46,11 +43,14 @@ CREATE TABLE "results" (
     "offense_id" integer,
     "sentence_id" integer,
     "case_id" bigint,
-    "primary_charge" boolean,
     "charge_disposition" varchar,
-    "charge_id" bigint,
-    "charge_version_id" bigint,
-    "length_of_case_in_days" bigint
+    "length_of_case_in_days" bigint,
+    "disposition_charged_offense_title" varchar,
+    "charge_count" integer,
+    "disposition_charged_class" varchar,
+    "sentence_date" date,
+    "incident_begin_date" date,
+    "arrest_date" date
 );
 
 ALTER TABLE "results" ADD CONSTRAINT "fk_results_case_participant_id" FOREIGN KEY("case_participant_id")
