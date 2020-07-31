@@ -1,5 +1,4 @@
 # CCSAO-Sentencing
-
 This repository houses the code for a data visualization dashboard analyzing judicial sentencing data for felony cases processed by the Cook County State's Attorneys Office (CCSAO) in Cook County, Illinois. For the purposes of this project, the data has been filtered to only include cases from 2010-2019.
 
 ![Image retrived from Slaferek Callihoo Criminal Defence Lawyers website on 20/07/2020](https://www.slafereklaw.ca/wp-content/uploads/2019/06/Criminal-Sentencing.jpg)
@@ -8,8 +7,9 @@ This repository houses the code for a data visualization dashboard analyzing jud
 ## Collaborators
 * Cristina Bardan
 * [Purvi Patel](https://github.com/patelpurvip)
+-----
 
-## Background
+# 1) Background
 [In late 2017](https://www.cookcountystatesattorney.org/news/cook-county-state-s-attorney-kim-foxx-announces-release-office-s-first-online-data-report), the State’s Attorney (judicial prosecutor’s office) in Cook County, Illinois – where the city of Chicago is located – made public a series of unfiltered datasets on all felony criminal cases processed in Cook County as part of an initiative to increase transparency in the criminal justice system. The case-level datasets contain anonymized information about every felony case processed by the State’s Attorney’s Office (SAO) dating back to roughly 2010, and have been provided for free so that any person or group can analyze the data and share the results publicly.
 
 There are 4 datasets, representing the four stages of interaction with the SAO during the legal process:
@@ -22,8 +22,7 @@ For this project, the group proposed to focus on analysis of ONE of the datasets
 
 This particular project has been coded with both Python and Javascript, with the majority of work being coded collaboratively over Zoom. A similar project (coded in R) on narcotics vs. non-narcotics cases from the Dispositions dataset was analyzed by [Nick Jones](https://github.com/nrjones8?tab=repositories) for cases from 2011-2016, and can be found [here](https://github.com/nrjones8/cook-county-states-attorney).
 
-
-## Data
+## Source Data
 For this project, we wanted to specifically analyze the sentencing dataset from Cook County State’s Attorney’s Office (CCSAO). The sentencing data reported by CCSAO ([found here](https://datacatalog.cookcountyil.gov/Courts/Sentencing/tg8v-tm6u)) reflects the judgment imposed by the court on people that have been found guilty. Each row represents a charge that has been sentenced. An downloadable glossary of of key terms within the dataset can also be [Sentencing dataset's page](https://datacatalog.cookcountyil.gov/Courts/Sentencing/tg8v-tm6u). 
 
 The following diagram explains the relationship of each data set to the overall judicial process for such cases.  The information from the sentencing dataset relates to the steps of the process highlighted in blue. 
@@ -31,7 +30,7 @@ The following diagram explains the relationship of each data set to the overall 
 ![Judicial Dataset Flowchart](images/CCSAO_Felony_Cases_Flowchart-1.png)
 
 
-# Data Cleaning
+# 2) Data Cleaning
 Given the sheer size of the dataset and the amount of information included, it was necessary to perform a large amount of data cleaning in order to tailor the data to the specific areas of analysis we wanted to explore.  Many data-cleaning decisions were based on the fact that the project was originally targeted to an audience of data analysts and programmers without a detailed knowledge of the State of Illinois judicial system, not to legal or law enforcement professionals.  
 
 All data cleaning was performed in the `new.ipynb` as detailed below, and saved in the 'ETL-backend' folder.
@@ -40,7 +39,7 @@ The final database was saved in SQLite, with four tables (participants, courts, 
 
 ![ERD](images/data_model.png)
 
-## Selecting data features to keep
+## a) Selecting data features to keep
 After initial discussion, we decided on several points of analysis we wanted to explore, such as comparisons final sentence lengths to demographics and category of offense.  Other suggestions for additional analysis included:
 
 * A demographic analysis of persons determined guilty of a felony charge (i.e. age, race, gender)
@@ -71,16 +70,16 @@ Based on these areas, we decide to limit the dataset to the following columns/da
 * arrest date 
 * offense category
 
-## Filtering Data
+## b) Filtering Data
 We first decided to apply the following filters in order to narrow of the scope of the data we would be evaluating:
 1. Limiting analysis to cases sentenced from 2015-2019
 2. Dropping data on lesser charges, keeping only sentencing data on the primary charge for any given case. 
 3. Keeping only the 'current sentence' assigned to any charge, to avoid double counting, and thus eliminating prior sentences that had been revised. 
 
-## Addressing gaps with older data
+## c) Addressing gaps with older data
 It appears that some data for older cases was not collected or not preserved, and at some point data was converted from prior systems into the current system.  Missing data appears as 'PROMIS conversion' or 'conversion' in the current data set. We converted these "conversion" entries to empty values and ran a drop NA to clear them from the data set. 
 
-## Consolidation of categories within data columns
+## d) Consolidation of categories within data columns
 Given that our primary audience was not an audience trained on the legal system, we decided it was acceptable to eliminate some of the more detailed nuances of the data in order to consolidate information into more generalized categories.  
 
 ### Race
@@ -110,7 +109,6 @@ When looking at the Categories for charge disposition, we decided to try to pres
 |Finding Not Not Guilty|*Left as its own separate category*|
 |Bond Forfeiture Warrant (BFW)|*Left as its own separate category*|
 
-
 ### Offense types
 The most difficult consolidation was consolidation of 78 offense categories into 20 categories.  We settled on the following:
 
@@ -137,7 +135,7 @@ The most difficult consolidation was consolidation of 78 offense categories into
 |Stalking|*Left as its own separate category*
 |Hate Crimes|*Left as its own separate category*|
 
-## Additional Data Cleaning Points
+## e) Additional Data Cleaning Points
 We also did the following minor data cleaning to the committment term (duration) information:
 * Convering all term lengths over 130years to 130 to mark natural life terms (including terms listed as 'Death' or 'Natural Life')
 * Changing duration of all Bootcamp terms to Months, for consistency, since some were listed in months and some in years.
@@ -158,5 +156,5 @@ To be able to analyze age data more easily, we created age bins:
 Finally, we dropped all duplicates within the dataset.
 
 
-# Contents
+# 3) Contents
 
