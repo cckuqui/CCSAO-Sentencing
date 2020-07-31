@@ -18,13 +18,7 @@ There are 4 datasets, representing the four stages of interaction with the SAO d
 3. DISPOSITION – the results of the fact-finding process and final outcome of the case
 4. SENTENCING – penalties imposed on cases found “guilty”
 
-For this project, the group proposed to focus on analysis of ONE of the datasets (Sentencing), with a focus on specific topics related to sentencing outcomes, such as:
-* A demographic analysis of persons found “guilty” of a felony charge (i.e. age, race, gender)
-* An analysis of the types of sentences imposed, possibly disaggregated by type of offense
-* An evaluation of the total time needed in the judicial process to arrive at the final sentence
-* An evaluation of the number of guilty findings and types of sentences grouped by the court or district where the case was processed
-  
-The project tried to take advantage of a dataset publicly available for free in both downloadable format (csv) and through an API url.  There is a strong interest by the SAO in Cook County to encourage the public to analyze the data, but the SAO does not have the resources to do this analysis directly.
+For this project, the group proposed to focus on analysis of ONE of the datasets (Sentencing), with a focus on specific topics related to sentencing outcomes. The project tried to take advantage of a dataset publicly available for free in both downloadable format (csv) and through an API url.  There is a strong interest by the SAO in Cook County to encourage the public to analyze the data, but the SAO does not have the resources to do this analysis directly.
 
 This particular project has been coded with both Python and Javascript, with the majority of work being coded collaboratively over Zoom. A similar project (coded in R) on narcotics vs. non-narcotics cases from the Dispositions dataset was analyzed by [Nick Jones](https://github.com/nrjones8?tab=repositories) for cases from 2011-2016, and can be found [here](https://github.com/nrjones8/cook-county-states-attorney).
 
@@ -40,9 +34,48 @@ The following diagram explains the relationship of each data set to the overall 
 ## Data Cleaning
 Given the sheer size of the dataset and the amount of information included, it was necessary to perform a large amount of data cleaning in order to tailor the data to the specific areas of analysis we wanted to explore.  Many data-cleaning decisions were based on the fact that the project was originally targeted to an audience of data analysts and programmers without a detailed knowledge of the State of Illinois judicial system, not to legal or law enforcement professionals.  
 
+All data cleaning was performed in the `new.ipynb` as detailed below, and saved in the 'ETL-backend' folder.
+
 The final database was saved in SQLite, with four tables (participants, courts, offenses, and sentences) feeding into a central results table, as shown in the Entity Relationship Diagram (ERD) below:
 
 ![ERD](images/data_model.png)
+
+### Selecting data features to keep
+After initial discussion, we decided on several points of analysis we wanted to explore, such as comparisons final sentence lengths to demographics and category of offense.  Other suggestions for additional analysis included:
+
+* A demographic analysis of persons determined guilty of a felony charge (i.e. age, race, gender)
+* An analysis of the types of sentences imposed, possibly disaggregated by type of offense
+* An evaluation of the total time needed in the judicial process to arrive at the final sentence
+* An evaluation of the number of guilty findings and types of sentences grouped by the court or district where the case was processed
+
+Based on these areas, we decide to limit the dataset to teh following columns/data points, which are defined on the [Cook County open data website](https://datacatalog.cookcountyil.gov/Courts/Sentencing/tg8v-tm6u):
+* case id
+* case participant id
+* charge id
+* charge version id
+* court facility
+* court name
+* age at incident
+* gender
+* race
+* charge disposition
+* length of case in days
+* current sentence
+* primary charge
+* sentence date
+* offense category
+* commitment term
+* commitment unit
+* sentence type
+
+### Addressing gaps with older data and avoiding double counting
+It appears that some data for older cases was not collected or not preserved, and at some point data was converted from prior systems into the current system.  Missing data appears as 'PROMIS conversion' or 'conversion' in the current data set. We first decide to limit analysis to cases sentencced from 2015-2019, in order to limit the number of cases with these conversion gaps.  For remaining cases, we converted them to empty values and ran a drop NA to clear them from the data set. 
+
+We also decided to drop data on lesser charges, keeping only sentencing data on the primary charge for any given case, as well as deciding to avoid double counting cases by keeping only the 'current sentence', and thus eliminating prior sentences that had been revised. 
+
+
+
+
 
 
 ## Contents
