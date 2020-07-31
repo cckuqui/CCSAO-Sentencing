@@ -115,6 +115,7 @@ The most difficult consolidation was consolidation of 88 offense categories into
 |Stalking|*Left as its own separate category*
 |Hate Crimes|*Left as its own separate category*|
 
+### Additional Data Cleaning Points
 
 We also did the following minor data cleaning to the committment term (duration) information:
 * Convering all term lengths over 130years to 130 to mark natural life terms (including terms listed as 'Death' or 'Natural Life')
