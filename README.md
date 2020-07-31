@@ -22,7 +22,7 @@ For this project, the group proposed to focus on analysis of ONE of the datasets
   
 The project tried to take advantage of a dataset publicly available for free in both downloadable format (csv) and through an API url.  There is a strong interest by the SAO in Cook County to encourage the public to analyze the data, but the SAO does not have the resources to do this analysis directly.
 
-This particular project has been coded with both Python and Javascript. A simlar project (coded in R) on narcotics vs. non-narcotics cases from the Dispositions dataset was analyzed by [Nick Jones](https://github.com/nrjones8?tab=repositories) for cases from 2011-2016, and can be found [here](https://github.com/nrjones8/cook-county-states-attorney).
+This particular project has been coded with both Python and Javascript. A similar project (coded in R) on narcotics vs. non-narcotics cases from the Dispositions dataset was analyzed by [Nick Jones](https://github.com/nrjones8?tab=repositories) for cases from 2011-2016, and can be found [here](https://github.com/nrjones8/cook-county-states-attorney).
 
 
 ## Data
@@ -34,6 +34,11 @@ The following diagram explains the relationship of each data set to the overall 
 
 
 ## Data Cleaning
+
+
+The final database was saved in SQLite, with four tables (participants, courts, offenses, and sentences) feeding into a central results table, as shown in the Entity Relationship Diagram (ERD) below:
+
+![ERD](images/data_model.png)
 
 
 ## Contents
