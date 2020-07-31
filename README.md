@@ -73,8 +73,33 @@ It appears that some data for older cases was not collected or not preserved, an
 
 We also decided to drop data on lesser charges, keeping only sentencing data on the primary charge for any given case, as well as deciding to avoid double counting cases by keeping only the 'current sentence', and thus eliminating prior sentences that had been revised. 
 
+### Consolidation of categories within data columns
+Given that our primary audience was not an audience trainied on the legal system, we decided it was acceptable to eliminate some of the more detailed nuances of the data in order to consolidate information into more generalized categories.  
 
+The most difficult consolidation was consolidation of 88 offense categories into 20 categories.  We settled on the following:
 
+|Final Category|Original Categories Included|
+|:---:|:---:|
+|Homicide|Homicide, Attempt Homicide, Reckless Homicide|
+|Offenses Against Police Officers|Aggravated Assault Police Officer, Aggravated Assault Police Officer Firearm, Police Shooting, Impersonating Police Officer, Aggravated Battery Police Officer, Aggravated Battery Police Officer Firearm, Disarming Police Officer|
+|Battery|Battery, Aggravated Battery, Aggravated Battery With A Firearm, Domestic Battery|
+|Robbery/Burglary/Theft|Aggravated Identity Theft, Aggravated Robbery, Aggravated Robbery BB Gun, Armed Robbery, Attempt Armed Robbery, Burglary, Identity Theft, Residential Burglary, Retail Theft, Robbery, Theft, Theft by Deception, Possession Of Burglary Tools|
+|Arson|Arson, Arson and Attempt Arson, Attempt Arson|
+|Firearms and Explosives|Aggravated Discharge Firearm, Armed Violence, Gun Running, Possession of Explosives, UUW - Unlawful Use of Weapon, Gun - Non UUW, Bomb Threat, Reckless Discharge of Firearm|
+|Motor Vehicle Offenses|Aggravated DUI, Attempt Vehicular Hijacking, DUI, Driving With Suspended Or Revoked License, Major Accidents, Possession of Stolen Motor Vehicle, Vehicular Hijacking, Vehicular Invasion|
+|Judicial Process Violations|Communicating With Witness, Escape - Failure to Return, Obstructing Justice, Perjury, Tampering, Violate Bail Bond, Violation Order Of Protection|
+|Sex Offenses|Attempt Sex Crimes, Child Pornography, Failure to Register as a Sex Offender, Pandering, Prostitution, Sex Crimes, Violation of Sex Offender Registration|
+|Human Trafficking/Detention/Kidnapping|Child Abduction, Human Trafficking, Kidnapping, Unlawful Restraint|
+|Trespassing|Home Invasion, Criminal Trespass To Residence|
+|Fraud/Deception|Credit Card Cases, Deceptive Practice, Forgery, Fraud, Fraudulent ID|
+|Corruption|Intimidation, Official Misconduct, Bribery|
+|Inside Penal Institutions|Possession of Contraband in Penal Institution, Possession of Shank in Penal Institution|
+|Other Offense|Dog Fighting, Gambling,‘Failure To Pay Child Support, Compelling Gang Membership|
+|Narcotics|*Left as its own separate category*|
+|Aggravated Fleeing and Eluding|*Left as its own separate category*|
+|Criminal Damage to Property|*Left as its own separate category*|
+|Stalking|*Left as its own separate category*
+|Hate Crimes|*Left as its own separate category*|
 
 
 
