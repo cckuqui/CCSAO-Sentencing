@@ -7,7 +7,7 @@ This repository houses the code for a data visualization dashboard analyzing jud
 
 ## Collaborators
 * Cristina Bardan
-* Purvi Patel
+* [Purvi Patel](https://github.com/patelpurvip)
 
 ## Background
 [In late 2017](https://www.cookcountystatesattorney.org/news/cook-county-state-s-attorney-kim-foxx-announces-release-office-s-first-online-data-report), the State’s Attorney (judicial prosecutor’s office) in Cook County, Illinois – where the city of Chicago is located – made public a series of unfiltered datasets on all felony criminal cases processed in Cook County as part of an initiative to increase transparency in the criminal justice system. The case-level datasets contain anonymized information about every felony case processed by the State’s Attorney’s Office (SAO) dating back to roughly 2010, and have been provided for free so that any person or group can analyze the data and share the results publicly.
@@ -31,7 +31,7 @@ The following diagram explains the relationship of each data set to the overall 
 ![Judicial Dataset Flowchart](images/CCSAO_Felony_Cases_Flowchart-1.png)
 
 
-## Data Cleaning
+# Data Cleaning
 Given the sheer size of the dataset and the amount of information included, it was necessary to perform a large amount of data cleaning in order to tailor the data to the specific areas of analysis we wanted to explore.  Many data-cleaning decisions were based on the fact that the project was originally targeted to an audience of data analysts and programmers without a detailed knowledge of the State of Illinois judicial system, not to legal or law enforcement professionals.  
 
 All data cleaning was performed in the `new.ipynb` as detailed below, and saved in the 'ETL-backend' folder.
@@ -40,7 +40,7 @@ The final database was saved in SQLite, with four tables (participants, courts, 
 
 ![ERD](images/data_model.png)
 
-### Selecting data features to keep
+## Selecting data features to keep
 After initial discussion, we decided on several points of analysis we wanted to explore, such as comparisons final sentence lengths to demographics and category of offense.  Other suggestions for additional analysis included:
 
 * A demographic analysis of persons determined guilty of a felony charge (i.e. age, race, gender)
@@ -71,22 +71,22 @@ Based on these areas, we decide to limit the dataset to the following columns/da
 * arrest date 
 * offense category
 
-### Filtering Data
+## Filtering Data
 We first decided to apply the following filters in order to narrow of the scope of the data we would be evaluating:
 1. Limiting analysis to cases sentenced from 2015-2019
 2. Dropping data on lesser charges, keeping only sentencing data on the primary charge for any given case. 
 3. Keeping only the 'current sentence' assigned to any charge, to avoid double counting, and thus eliminating prior sentences that had been revised. 
 
-### Addressing gaps with older data
+## Addressing gaps with older data
 It appears that some data for older cases was not collected or not preserved, and at some point data was converted from prior systems into the current system.  Missing data appears as 'PROMIS conversion' or 'conversion' in the current data set. We converted these "conversion" entries to empty values and ran a drop NA to clear them from the data set. 
 
-### Consolidation of categories within data columns
+## Consolidation of categories within data columns
 Given that our primary audience was not an audience trained on the legal system, we decided it was acceptable to eliminate some of the more detailed nuances of the data in order to consolidate information into more generalized categories.  
 
-#### Race
+### Race
 For the "Race" column we consolidated the values White [Hispanic or Latino], HISPANIC, White/Black [Hispanic or Latino] into a category called 'Hispanic/Latino', and left the other categories as they were in the original dataset. 
 
-#### Sentence Types
+### Sentence Types
 We looked to convert sentence types into more consolidated categories, as follows:
 
 |Final Category|Original Categories Included|
@@ -97,12 +97,12 @@ We looked to convert sentence types into more consolidated categories, as follow
 
 In the judicial process flowchart shown above, sentence types are divided into conditional discharge/probation/supervision as one category, and Jail/Prison/Bootcamp.  We almost decided to use the same division between these two general categories, given that the second set of sentences reflect some type of in-facility detention.  However we kept the bootcamp separate from detention because it is measured in months and also has a probation element.  Additionally, we kept conditional discharge separate from probation/supervision.
 
-#### Charge disposition
+### Charge disposition
 When looking at the Categories for charge disposition, we decided to try to preserve the different types of outcomes of 'guilty': Pleas of guilty vs. findings of guilty by judges vs. guilty verdicts by juries. This was in part to leave the option for later analyzing the proportion of guilty findings that result from plea bargaining.  We also separated out cases the concluded without a guilty finding. 
 
 |Final Category|Original Categories|
 |:---:|:---:|
-|Not included in final data|WOWI, Superseded by Indictment, Death Suggested-Cause Abated, Sexually Dangerous Person (only 1 case)|
+|Not included in final data|WOWI, Superseded by Indictment, Death Suggested-Cause Abated, Sexually Dangerous Person(only 1 case)|
 |No Guilty Finding|Nolle Prosecution, Case Dismissed, Finding Not Guilty (FNG), FNG Reason Insanity, Finding of no Probable Cause (FNPC),  Stricken Off with Leave to Reinstate (SOLW), Charge Vacated|
 |Plea of Guity|Plea of Guity, Plea of Guilty - Amended Charge, Plea of Guilty But Mentally Ill, Plea of Guilty - Lesser Included|
 |Finding Guilty| Finding Guilty, Finding Guilty - Lesser Included, Finding Guilty But Mentally Ill|
@@ -111,7 +111,7 @@ When looking at the Categories for charge disposition, we decided to try to pres
 |Bond Forfeiture Warrant (BFW)|*Left as its own separate category*|
 
 
-#### Offense types
+### Offense types
 The most difficult consolidation was consolidation of 78 offense categories into 20 categories.  We settled on the following:
 
 |Final Category|Original Categories Included|
@@ -137,7 +137,7 @@ The most difficult consolidation was consolidation of 78 offense categories into
 |Stalking|*Left as its own separate category*
 |Hate Crimes|*Left as its own separate category*|
 
-### Additional Data Cleaning Points
+## Additional Data Cleaning Points
 We also did the following minor data cleaning to the committment term (duration) information:
 * Convering all term lengths over 130years to 130 to mark natural life terms (including terms listed as 'Death' or 'Natural Life')
 * Changing duration of all Bootcamp terms to Months, for consistency, since some were listed in months and some in years.
@@ -146,7 +146,7 @@ We also did the following minor data cleaning to the committment term (duration)
 * Cleaning data into numbers --> **NEED TO FIND A CLEARER WAY TO SAY THIS**
 
 To be able to analyze age data more easily, we created age bins:
-* "<18"
+* <18
 * 18-24
 * 25-29
 * 30-34 --> **DID WE DECIDED TO CONSOLIDATE ALL 30S INTO ONE CATEGORY?**
@@ -158,6 +158,5 @@ To be able to analyze age data more easily, we created age bins:
 Finally, we dropped all duplicates within the dataset.
 
 
-
-## Contents
+# Contents
 
