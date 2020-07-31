@@ -5,6 +5,10 @@ This repository houses the code for a data visualization dashboard analyzing jud
 ![Image retrived from Slaferek Callihoo Criminal Defence Lawyers website on 20/07/2020](https://www.slafereklaw.ca/wp-content/uploads/2019/06/Criminal-Sentencing.jpg)
 
 
+## Collaborators
+* Cristina Bardan
+* Purvi Patel
+
 ## Background
 [In late 2017](https://www.cookcountystatesattorney.org/news/cook-county-state-s-attorney-kim-foxx-announces-release-office-s-first-online-data-report), the State’s Attorney (judicial prosecutor’s office) in Cook County, Illinois – where the city of Chicago is located – made public a series of unfiltered datasets on all felony criminal cases processed in Cook County as part of an initiative to increase transparency in the criminal justice system. The case-level datasets contain anonymized information about every felony case processed by the State’s Attorney’s Office (SAO) dating back to roughly 2010, and have been provided for free so that any person or group can analyze the data and share the results publicly.
 
@@ -22,7 +26,7 @@ For this project, the group proposed to focus on analysis of ONE of the datasets
   
 The project tried to take advantage of a dataset publicly available for free in both downloadable format (csv) and through an API url.  There is a strong interest by the SAO in Cook County to encourage the public to analyze the data, but the SAO does not have the resources to do this analysis directly.
 
-This particular project has been coded with both Python and Javascript. A similar project (coded in R) on narcotics vs. non-narcotics cases from the Dispositions dataset was analyzed by [Nick Jones](https://github.com/nrjones8?tab=repositories) for cases from 2011-2016, and can be found [here](https://github.com/nrjones8/cook-county-states-attorney).
+This particular project has been coded with both Python and Javascript, with the majority of work being coded collaboratively over Zoom. A similar project (coded in R) on narcotics vs. non-narcotics cases from the Dispositions dataset was analyzed by [Nick Jones](https://github.com/nrjones8?tab=repositories) for cases from 2011-2016, and can be found [here](https://github.com/nrjones8/cook-county-states-attorney).
 
 
 ## Data
@@ -34,7 +38,7 @@ The following diagram explains the relationship of each data set to the overall 
 
 
 ## Data Cleaning
-
+Given the sheer size of the dataset and the amount of information included, it was necessary to perform a large amount of data cleaning in order to tailor the data to the specific areas of analysis we wanted to explore.  Many data-cleaning decisions were based on the fact that the project was originally targeted to an audience of data analysts and programmers without a detailed knowledge of the State of Illinois judicial system, not to legal or law enforcement professionals.  
 
 The final database was saved in SQLite, with four tables (participants, courts, offenses, and sentences) feeding into a central results table, as shown in the Entity Relationship Diagram (ERD) below:
 
