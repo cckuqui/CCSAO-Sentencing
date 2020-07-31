@@ -69,12 +69,12 @@ Based on these areas, we decide to limit the dataset to teh following columns/da
 * sentence type
 
 ### Addressing gaps with older data and avoiding double counting
-It appears that some data for older cases was not collected or not preserved, and at some point data was converted from prior systems into the current system.  Missing data appears as 'PROMIS conversion' or 'conversion' in the current data set. We first decide to limit analysis to cases sentencced from 2015-2019, in order to limit the number of cases with these conversion gaps.  For remaining cases, we converted them to empty values and ran a drop NA to clear them from the data set. 
+It appears that some data for older cases was not collected or not preserved, and at some point data was converted from prior systems into the current system.  Missing data appears as 'PROMIS conversion' or 'conversion' in the current data set. We first decided to limit analysis to cases sentenced from 2015-2019, in order to limit the number of cases with these conversion gaps.  For remaining cases, we converted these "conversion" entries to empty values and ran a drop NA to clear them from the data set. 
 
-We also decided to drop data on lesser charges, keeping only sentencing data on the primary charge for any given case, as well as deciding to avoid double counting cases by keeping only the 'current sentence', and thus eliminating prior sentences that had been revised. 
+We also decided to drop data on lesser charges, keeping only sentencing data on the primary charge for any given case. We also decided to avoid double counting cases by keeping only the 'current sentence', and thus eliminating prior sentences that had been revised. 
 
 ### Consolidation of categories within data columns
-Given that our primary audience was not an audience trainied on the legal system, we decided it was acceptable to eliminate some of the more detailed nuances of the data in order to consolidate information into more generalized categories.  
+Given that our primary audience was not an audience trained on the legal system, we decided it was acceptable to eliminate some of the more detailed nuances of the data in order to consolidate information into more generalized categories.  
 
 The most difficult consolidation was consolidation of 88 offense categories into 20 categories.  We settled on the following:
 
@@ -90,7 +90,7 @@ The most difficult consolidation was consolidation of 88 offense categories into
 |Judicial Process Violations|Communicating With Witness, Escape - Failure to Return, Obstructing Justice, Perjury, Tampering, Violate Bail Bond, Violation Order Of Protection|
 |Sex Offenses|Attempt Sex Crimes, Child Pornography, Failure to Register as a Sex Offender, Pandering, Prostitution, Sex Crimes, Violation of Sex Offender Registration|
 |Human Trafficking/Detention/Kidnapping|Child Abduction, Human Trafficking, Kidnapping, Unlawful Restraint|
-|Trespassing|Home Invasion, Criminal Trespass To Residence|
+|Trespassing|Trespassing, Home Invasion, Criminal Trespass To Residence|
 |Fraud/Deception|Credit Card Cases, Deceptive Practice, Forgery, Fraud, Fraudulent ID|
 |Corruption|Intimidation, Official Misconduct, Bribery|
 |Inside Penal Institutions|Possession of Contraband in Penal Institution, Possession of Shank in Penal Institution|
