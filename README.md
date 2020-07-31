@@ -78,6 +78,18 @@ Given that our primary audience was not an audience trained on the legal system,
 
 First, for the "Race" column we consolidated the values White [Hispanic or Latino], HISPANIC, White/Black [Hispanic or Latino] into a category called 'Hispanic/Latino', and left the other categories as they were in the original dataset. 
 
+
+We then looked to convert sentence types into more consolidated categories, as follows:
+
+|Final Category|Original Categories Included|
+|:---:|:---:|
+|Incarceration|Jail, Prison|
+|Probation/Supervision|Probation, 2nd Chance Probation, Supervision, Probation Terminated Unsatisfactorily, Probation Terminated Instanter, Probation Terminated Satisfactorily|
+|Conditional Discharge|Conditional Discharge, Conditional Release|
+
+In the judicial process flowchart shown above, sentence types are divided into conditional discharge/probation/supervision as one category, and Jail/Prison/Bootcamp.  We almost decided to use the same division between these two general categories, given that the second set of sentences reflect some type of in-facility detention.  However we kept the bootcamp separate from detention because it is measured in months and also has a probation element.  Additionally, we kept conditional discharge separate from probation/supervision.
+
+
 The most difficult consolidation was consolidation of 88 offense categories into 20 categories.  We settled on the following:
 
 |Final Category|Original Categories Included|
@@ -103,15 +115,6 @@ The most difficult consolidation was consolidation of 88 offense categories into
 |Stalking|*Left as its own separate category*
 |Hate Crimes|*Left as its own separate category*|
 
-We then looked to convert sentence types into more consolidated categories, as follows:
-
-|Final Category|Original Categories Included|
-|:---:|:---:|
-|Incarceration|Jail, Prison|
-|Probation/Supervision|Probation, 2nd Chance Probation, Supervision, Probation Terminated Unsatisfactorily, Probation Terminated Instanter, Probation Terminated Satisfactorily|
-|Conditional Discharge|Conditional Discharge, Conditional Release|
-
-In the judicial process flowchart shown above, sentence types are divided into conditional discharge/probation/supervision as one category, and Jail/Prison/Bootcamp.  We almost decided to use the same division between these two general categories, given that the second set of sentences reflect some type of in-facility detention.  However we kept the bootcamp separate from detention because it is measured in months and also has a probation element.  Additionally, we kept conditional discharge separate from probation/supervision.
 
 We also did the following minor data cleaning to the committment term (duration) information:
 * Convering all term lengths over 130years to 130 to mark natural life terms (including terms listed as 'Death' or 'Natural Life')
