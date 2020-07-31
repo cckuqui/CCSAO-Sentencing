@@ -48,7 +48,7 @@ After initial discussion, we decided on several points of analysis we wanted to 
 * An evaluation of the total time needed in the judicial process to arrive at the final sentence
 * An evaluation of the number of guilty findings and types of sentences grouped by the court or district where the case was processed
 
-Based on these areas, we decide to limit the dataset to teh following columns/data points, which are defined on the [Cook County open data website](https://datacatalog.cookcountyil.gov/Courts/Sentencing/tg8v-tm6u):
+Based on these areas, we decide to limit the dataset to the following columns/data points, which are defined on the [Cook County open data website](https://datacatalog.cookcountyil.gov/Courts/Sentencing/tg8v-tm6u):
 * case id                          
 * case participant id
 * primary charge
@@ -71,10 +71,14 @@ Based on these areas, we decide to limit the dataset to teh following columns/da
 * arrest date 
 * offense category
 
-### Addressing gaps with older data and avoiding double counting
-It appears that some data for older cases was not collected or not preserved, and at some point data was converted from prior systems into the current system.  Missing data appears as 'PROMIS conversion' or 'conversion' in the current data set. We first decided to limit analysis to cases sentenced from 2015-2019, in order to limit the number of cases with these conversion gaps.  For remaining cases, we converted these "conversion" entries to empty values and ran a drop NA to clear them from the data set. 
+### Filtering Data
+We first decided to apply the following filters in order to narrow of the scope of the data we would be evaluating:
+1. Limiting analysis to cases sentenced from 2015-2019
+2. Dropping data on lesser charges, keeping only sentencing data on the primary charge for any given case. 
+3. Keeping only the 'current sentence' assigned to any charge, to avoid double counting, and thus eliminating prior sentences that had been revised. 
 
-We also decided to drop data on lesser charges, keeping only sentencing data on the primary charge for any given case. We also decided to avoid double counting cases by keeping only the 'current sentence', and thus eliminating prior sentences that had been revised. 
+### Addressing gaps with older data
+It appears that some data for older cases was not collected or not preserved, and at some point data was converted from prior systems into the current system.  Missing data appears as 'PROMIS conversion' or 'conversion' in the current data set. We converted these "conversion" entries to empty values and ran a drop NA to clear them from the data set. 
 
 ### Consolidation of categories within data columns
 Given that our primary audience was not an audience trained on the legal system, we decided it was acceptable to eliminate some of the more detailed nuances of the data in order to consolidate information into more generalized categories.  
@@ -119,13 +123,12 @@ The most difficult consolidation was consolidation of 88 offense categories into
 |Hate Crimes|*Left as its own separate category*|
 
 ### Additional Data Cleaning Points
-
 We also did the following minor data cleaning to the committment term (duration) information:
 * Convering all term lengths over 130years to 130 to mark natural life terms (including terms listed as 'Death' or 'Natural Life')
 * Changing duration of all Bootcamp terms to Months, for consistency, since some were listed in months and some in years.
 * Creating addtional columns for terms in years and in months, to be able to compare length of commitment terms by either measure across categories, as needed.
 * Converting 'term' values of 'Pounds’ and ‘Kilos' to 'Weight'
-* Cleaning data into numbers --> **WHAT DOES THIS MEAN????**
+* Cleaning data into numbers --> **NEED TO FIND A CLEARER WAY TO SAY THIS**
 
 To be able to analyze age data more easily, we created age bins:
 * "<18"
