@@ -76,6 +76,8 @@ We also decided to drop data on lesser charges, keeping only sentencing data on 
 ### Consolidation of categories within data columns
 Given that our primary audience was not an audience trained on the legal system, we decided it was acceptable to eliminate some of the more detailed nuances of the data in order to consolidate information into more generalized categories.  
 
+First, for the "Race" column we consolidated the values White [Hispanic or Latino], HISPANIC, White/Black [Hispanic or Latino] into a category called 'Hispanic/Latino', and left the other categories as they were in the original dataset. 
+
 The most difficult consolidation was consolidation of 88 offense categories into 20 categories.  We settled on the following:
 
 |Final Category|Original Categories Included|
@@ -100,6 +102,35 @@ The most difficult consolidation was consolidation of 88 offense categories into
 |Criminal Damage to Property|*Left as its own separate category*|
 |Stalking|*Left as its own separate category*
 |Hate Crimes|*Left as its own separate category*|
+
+We then looked to convert sentence types into more consolidated categories, as follows:
+
+|Final Category|Original Categories Included|
+|:---:|:---:|
+|Incarceration|Jail, Prison|
+|Probation/Supervision|Probation, 2nd Chance Probation, Supervision, Probation Terminated Unsatisfactorily, Probation Terminated Instanter, Probation Terminated Satisfactorily|
+|Conditional Discharge|Conditional Discharge, Conditional Release|
+
+In the judicial process flowchart shown above, sentence types are divided into conditional discharge/probation/supervision as one category, and Jail/Prison/Bootcamp.  We almost decided to use the same division between these two general categories, given that the second set of sentences reflect some type of in-facility detention.  However we kept the bootcamp separate from detention because it is measured in months and also has a probation element.  Additionally, we kept conditional discharge separate from probation/supervision.
+
+We also did the following minor data cleaning to the committment term (duration) information:
+* Convering all term lengths over 130years to 130 to mark natural life terms (including terms listed as 'Death' or 'Natural Life')
+* Changing duration of all Bootcamp terms to Months, for consistency, since some were listed in months and some in years.
+* Creating addtional columns for terms in years and in months, to be able to compare length of commitment terms by either measure across categories, as needed.
+* Converting 'term' values of 'Pounds’ and ‘Kilos' to 'Weight'
+* Cleaning data into numbers --> **WHAT DOES THIS MEAN????**
+
+To be able to analyze age data more easily, we created age bins:
+* "<18"
+* 18-24
+* 25-29
+* 30-34 --> **DID WE DECIDED TO CONSOLIDATE ALL 30S INTO ONE CATEGORY?**
+* 35-39
+* 40s
+* 50s
+* 60
+
+Finally, we dropped all duplicates within the dataset.
 
 
 
