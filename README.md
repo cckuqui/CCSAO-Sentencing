@@ -83,10 +83,11 @@ It appears that some data for older cases was not collected or not preserved, an
 ### Consolidation of categories within data columns
 Given that our primary audience was not an audience trained on the legal system, we decided it was acceptable to eliminate some of the more detailed nuances of the data in order to consolidate information into more generalized categories.  
 
-First, for the "Race" column we consolidated the values White [Hispanic or Latino], HISPANIC, White/Black [Hispanic or Latino] into a category called 'Hispanic/Latino', and left the other categories as they were in the original dataset. 
+#### Race
+For the "Race" column we consolidated the values White [Hispanic or Latino], HISPANIC, White/Black [Hispanic or Latino] into a category called 'Hispanic/Latino', and left the other categories as they were in the original dataset. 
 
-
-We then looked to convert sentence types into more consolidated categories, as follows:
+#### Sentence Types
+We looked to convert sentence types into more consolidated categories, as follows:
 
 |Final Category|Original Categories Included|
 |:---:|:---:|
@@ -96,8 +97,22 @@ We then looked to convert sentence types into more consolidated categories, as f
 
 In the judicial process flowchart shown above, sentence types are divided into conditional discharge/probation/supervision as one category, and Jail/Prison/Bootcamp.  We almost decided to use the same division between these two general categories, given that the second set of sentences reflect some type of in-facility detention.  However we kept the bootcamp separate from detention because it is measured in months and also has a probation element.  Additionally, we kept conditional discharge separate from probation/supervision.
 
+#### Charge disposition
+When looking at the Categories for charge disposition, we decided to try to preserve the different types of outcomes of 'guilty': Pleas of guilty vs. findings of guilty by judges vs. guilty verdicts by juries. This was in part to leave the option for later analyzing the proportion of guilty findings that result from plea bargaining.  We also separated out cases the concluded without a guilty finding. 
 
-The most difficult consolidation was consolidation of 88 offense categories into 20 categories.  We settled on the following:
+|Final Category|Original Categories|
+|:---:|:---:|
+|Not included in final data|WOWI, Superseded by Indictment, Death Suggested-Cause Abated, Sexually Dangerous Person (only 1 case)|
+|No Guilty Finding|Nolle Prosecution, Case Dismissed, Finding Not Guilty (FNG), FNG Reason Insanity, Finding of no Probable Cause (FNPC),  Stricken Off with Leave to Reinstate (SOLW), Charge Vacated|
+|Plea of Guity|Plea of Guity, Plea of Guilty - Amended Charge, Plea of Guilty But Mentally Ill, Plea of Guilty - Lesser Included|
+|Finding Guilty| Finding Guilty, Finding Guilty - Lesser Included, Finding Guilty But Mentally Ill|
+|Verdict Guilty|*Left as its own separate category*|
+|Finding Not Not Guilty|*Left as its own separate category*|
+|Bond Forfeiture Warrant (BFW)|*Left as its own separate category*|
+
+
+#### Offense types
+The most difficult consolidation was consolidation of 78 offense categories into 20 categories.  We settled on the following:
 
 |Final Category|Original Categories Included|
 |:---:|:---:|
@@ -106,7 +121,7 @@ The most difficult consolidation was consolidation of 88 offense categories into
 |Battery|Battery, Aggravated Battery, Aggravated Battery With A Firearm, Domestic Battery|
 |Robbery/Burglary/Theft|Aggravated Identity Theft, Aggravated Robbery, Aggravated Robbery BB Gun, Armed Robbery, Attempt Armed Robbery, Burglary, Identity Theft, Residential Burglary, Retail Theft, Robbery, Theft, Theft by Deception, Possession Of Burglary Tools|
 |Arson|Arson, Arson and Attempt Arson, Attempt Arson|
-|Firearms and Explosives|Aggravated Discharge Firearm, Armed Violence, Gun Running, Possession of Explosives, UUW - Unlawful Use of Weapon, Gun - Non UUW, Bomb Threat, Reckless Discharge of Firearm|
+|Firearms and Explosives|Aggravated Discharge Firearm, Armed Violence, Gun Running, Possession of Explosives, UUW - Unlawful Use of Weapon, Gun - Non UUW, Bomb Threat, Reckless Discharge of Firearm
 |Motor Vehicle Offenses|Aggravated DUI, Attempt Vehicular Hijacking, DUI, Driving With Suspended Or Revoked License, Major Accidents, Possession of Stolen Motor Vehicle, Vehicular Hijacking, Vehicular Invasion|
 |Judicial Process Violations|Communicating With Witness, Escape - Failure to Return, Obstructing Justice, Perjury, Tampering, Violate Bail Bond, Violation Order Of Protection|
 |Sex Offenses|Attempt Sex Crimes, Child Pornography, Failure to Register as a Sex Offender, Pandering, Prostitution, Sex Crimes, Violation of Sex Offender Registration|
