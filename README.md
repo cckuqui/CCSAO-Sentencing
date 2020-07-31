@@ -49,24 +49,27 @@ After initial discussion, we decided on several points of analysis we wanted to 
 * An evaluation of the number of guilty findings and types of sentences grouped by the court or district where the case was processed
 
 Based on these areas, we decide to limit the dataset to teh following columns/data points, which are defined on the [Cook County open data website](https://datacatalog.cookcountyil.gov/Courts/Sentencing/tg8v-tm6u):
-* case id
+* case id                          
 * case participant id
-* charge id
-* charge version id
-* court facility
-* court name
-* age at incident
-* gender
-* race
-* charge disposition
-* length of case in days
-* current sentence
 * primary charge
+* disposition charged offense title
+* charge count
+* disposition charged class
+* charge disposition
+* court name
+* court facility
 * sentence date
-* offense category
+* sentence type
+* current sentence
 * commitment term
 * commitment unit
-* sentence type
+* length of case in days
+* age at incident
+* race
+* gender
+* incident begin date
+* arrest date 
+* offense category
 
 ### Addressing gaps with older data and avoiding double counting
 It appears that some data for older cases was not collected or not preserved, and at some point data was converted from prior systems into the current system.  Missing data appears as 'PROMIS conversion' or 'conversion' in the current data set. We first decided to limit analysis to cases sentenced from 2015-2019, in order to limit the number of cases with these conversion gaps.  For remaining cases, we converted these "conversion" entries to empty values and ran a drop NA to clear them from the data set. 
