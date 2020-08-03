@@ -5,7 +5,7 @@ This repository houses the code for a data visualization dashboard analyzing jud
 
 
 ## Collaborators
-* Cristina Bardan
+* [Cristina Bardan](https://github.com/cckuqui)
 * [Purvi Patel](https://github.com/patelpurvip)
 -----
 
