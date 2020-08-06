@@ -1,4 +1,4 @@
-d3.json("./static/offense_multi.json").then(function (data) {
+d3.json("/courts/data").then(function (data) {
     
     var data1 = data.filter(p => (p.sentence_type == "Incarceration") | (p.sentence_type == "Probation/Supervision"));
     
