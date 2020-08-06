@@ -73,8 +73,8 @@ Based on these areas, we decide to limit the dataset to the following columns/da
 ## b) Filtering Data
 We first decided to apply the following filters to narrow of the scope of the data we would be evaluating:
 1. Limiting the analysis to cases sentenced from 2015-2019
-2. Dropping data on lesser charges, keeping only sentencing data on the primary charge for any given case. 
-3. Keeping only the 'current sentence' assigned to any charge, to avoid double-counting, and thus eliminating prior sentences that had been revised. 
+2. Dropping data on lesser charges, keeping only sentencing data on the `primary charge` that was stated as `True` for any given case. 
+3. Keeping only the `current sentence` assigned to any charge, to avoid double-counting, and thus eliminating prior sentences that had been revised. 
 
 ## c) Addressing gaps with older data
 It appears that some of the data for older cases were not collected or not preserved, and at some point, data was converted from prior systems into the current system. Missing data appears as 'PROMIS conversion' or 'conversion' in the current data set. We converted these "conversion" entries to empty values and ran a drop NA to clear them from the data set. 
