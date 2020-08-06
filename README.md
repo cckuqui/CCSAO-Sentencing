@@ -77,13 +77,13 @@ We first decided to apply the following filters to narrow of the scope of the da
 3. Keeping only the `current sentence` assigned to any charge, to avoid double-counting, and thus eliminating prior sentences that had been revised. 
 
 ## c) Addressing gaps with older data
-It appears that some of the data for older cases were not collected or not preserved, and at some point, data was converted from prior systems into the current system. Missing data appears as 'PROMIS conversion' or 'conversion' in the current data set. We converted these "conversion" entries to empty values and ran a drop NA to clear them from the data set. 
+It appears that some of the data for older cases were not collected or not preserved, and at some point, data was converted from prior systems into the current system. Missing data appears as `PROMIS conversion` or `conversion` in the current data set. We converted these entries to empty values and ran a drop NA to clear them from the data set. 
 
 ## d) Consolidation of categories within data columns
 Given that our primary audience was not an audience trained on the legal system, we decided it was acceptable to eliminate some of the more detailed nuances of the data to consolidate information into more generalized categories.
 
 ### Race
-For the "Race" column we consolidated the values White [Hispanic or Latino], HISPANIC, White/Black [Hispanic or Latino] into a category called 'Hispanic/Latino', and left the other categories as they were in the original dataset. 
+For the "Race" column we consolidated the values White [Hispanic or Latino], HISPANIC, White/Black [Hispanic or Latino] into a category called `Hispanic/Latino`, and left the other categories as they were in the original dataset. 
 
 ### Sentence Types
 We looked to convert sentence types into more consolidated categories, as follows:
@@ -97,7 +97,7 @@ We looked to convert sentence types into more consolidated categories, as follow
 In the judicial process flowchart shown above, sentence types are divided into conditional discharge/probation/supervision as one category, and Jail/Prison/Bootcamp. We almost decided to use the same division between these two general categories, given that the second set of sentences reflect some type of in-facility detention. However, we kept the Bootcamp separate from detention because it is measured in months and also has a probation element. Additionally, we kept conditional discharge separate from probation/supervision.
 
 ### Charge disposition
-When looking at the Categories for Charge Disposition, we decided to try to preserve the different types of outcomes of 'guilty': Pleas of guilty vs. findings of guilty by judges vs. guilty verdicts by juries. This was in part to leave the option for later analysis of the proportion of guilty findings that result from plea bargaining. We also separated cases that concluded without a guilty finding. 
+When looking at the Categories for Charge Disposition, we decided to try to preserve the different types of outcomes of "guilty": Pleas of guilty vs. findings of guilty by judges vs. guilty verdicts by juries. This was in part to leave the option for later analysis of the proportion of guilty findings that result from plea bargaining. We also separated cases that concluded without a guilty finding. 
 
 |Final Category|Original Categories|
 |:---:|:---:|
