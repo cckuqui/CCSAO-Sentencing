@@ -105,9 +105,9 @@ When looking at the Categories for charge disposition, we decided to try to pres
 |No Guilty Finding|Nolle Prosecution, Case Dismissed, Finding Not Guilty (FNG), FNG Reason Insanity, Finding of no Probable Cause (FNPC),  Stricken Off with Leave to Reinstate (SOLW), Charge Vacated|
 |Plea of Guity|Plea of Guity, Plea of Guilty - Amended Charge, Plea of Guilty But Mentally Ill, Plea of Guilty - Lesser Included|
 |Finding Guilty| Finding Guilty, Finding Guilty - Lesser Included, Finding Guilty But Mentally Ill|
-|Verdict Guilty|*Left as its own separate category*|
-|Finding Not Not Guilty|*Left as its own separate category*|
-|Bond Forfeiture Warrant (BFW)|*Left as its own separate category*|
+|Verdict Guilty|*Left as a separate category*|
+|Finding Not Not Guilty|*Left as a separate category*|
+|Bond Forfeiture Warrant (BFW)|*Left as a separate category*|
 
 ### Offense types
 The most difficult consolidation was the consolidation of 78 offense categories into 20 categories.  We settled on the following:
@@ -129,11 +129,11 @@ The most difficult consolidation was the consolidation of 78 offense categories 
 |Corruption|Intimidation, Official Misconduct, Bribery|
 |Inside Penal Institutions|Possession of Contraband in Penal Institution, Possession of Shank in Penal Institution|
 |Other Offense|Dog Fighting, Gambling,‘Failure To Pay Child Support, Compelling Gang Membership|
-|Narcotics|*Left as its own separate category*|
-|Aggravated Fleeing and Eluding|*Left as its own separate category*|
-|Criminal Damage to Property|*Left as its own separate category*|
+|Narcotics|*Left as a separate category*|
+|Aggravated Fleeing and Eluding|*Left as a separate category*|
+|Criminal Damage to Property|*Left as a separate category*|
 |Stalking|*Left as a separate category*
-|Hate Crimes|*Left as its own separate category*|
+|Hate Crimes|*Left as a separate category*|
 
 ## e) Additional Data Cleaning Points
 We also did the following minor data cleaning to the commitment term (duration) information:
@@ -147,8 +147,7 @@ To be able to analyze age data more easily, we created age bins:
 * <18
 * 18-24
 * 25-29
-* 30-34 --> **DID WE DECIDED TO CONSOLIDATE ALL 30S INTO ONE CATEGORY?**
-* 35-39
+* 30s
 * 40s
 * 50s
 * 60
