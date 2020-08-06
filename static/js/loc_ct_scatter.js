@@ -1,4 +1,4 @@
-d3.json("./static/scatter_length.json").then(function (data) {
+d3.json("/length_of_case/scatter").then(function (data) {
   
   var data = data.filter(n => (n.length_of_case_in_days >= 0) & (n.length_of_case_in_days <= 2000));
   var data = data.filter(n => (n.year <= 100));

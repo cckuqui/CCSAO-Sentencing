@@ -1,4 +1,4 @@
-d3.json("./static/offense_box.json").then(function (data) {
+d3.json("/length_of_case/box").then(function (data) {
   var data = data.filter(n => (n.length_of_case_in_days >= 0) & (n.length_of_case_in_days <= 5000));
   
   console.log(data)

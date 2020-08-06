@@ -1,4 +1,4 @@
-d3.json("./static/offense_multi.json").then(function (data) {
+d3.json("/courts/data").then(function (data) {
     
     function compare(a, b) {
         let comparison = 0;
