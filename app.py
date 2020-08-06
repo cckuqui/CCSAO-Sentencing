@@ -1,12 +1,11 @@
 from flask import Flask, Markup, render_template, jsonify
-from password import key
 import pandas as pd
 import sqlite3
 import queries
 
 
 app = Flask(__name__)
-conn = sqlite3.connect("sentencing.db")
+conn = sqlite3.connect("ETL-backend/sentencing.db")
 
 @app.route("/")
 def index():
