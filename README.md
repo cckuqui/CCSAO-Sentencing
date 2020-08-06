@@ -128,7 +128,7 @@ The most difficult consolidation was the consolidation of 78 offense categories 
 |Fraud/Deception|Credit Card Cases, Deceptive Practice, Forgery, Fraud, Fraudulent ID|
 |Corruption|Intimidation, Official Misconduct, Bribery|
 |Inside Penal Institutions|Possession of Contraband in Penal Institution, Possession of Shank in Penal Institution|
-|Other Offense|Dog Fighting, Gambling, ‘Failure To Pay Child Support, Compelling Gang Membership|
+|Other Offense|Dog Fighting, Gambling, Failure To Pay Child Support, Compelling Gang Membership|
 |Narcotics|*Left as a separate category*|
 |Aggravated Fleeing and Eluding|*Left as a separate category*|
 |Criminal Damage to Property|*Left as a separate category*|
@@ -137,7 +137,7 @@ The most difficult consolidation was the consolidation of 78 offense categories 
 
 ## e) Additional Data Cleaning Points
 We also did the following minor data cleaning to the commitment term (duration) information:
-* Converting all term lengths over 130 years to 130 to mark natural life terms (including terms listed as 'Death' or 'Natural Life')
+* Converting all term lengths over 130 years to `130` to mark natural life terms (including terms listed as `Death` or `Natural Life`)
 * Changing duration of all Bootcamp terms to Months, for consistency, since some were listed in months and some in years.
 * Creating additional columns for terms in years and in months, to be able to compare the length of commitment terms by either measure across categories, as needed.
 * Converting the commitment_unit values of `Pounds` and `Kilos` to `Weight`
