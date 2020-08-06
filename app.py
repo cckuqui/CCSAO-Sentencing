@@ -5,7 +5,7 @@ import queries
 
 
 app = Flask(__name__)
-conn = sqlite3.connect("ETL-backend/sentencing.db")
+conn = sqlite3.connect("ETL-backend/sentencing.db", check_same_thread=False)
 
 @app.route("/")
 def index():
