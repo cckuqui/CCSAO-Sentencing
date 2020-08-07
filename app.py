@@ -56,10 +56,6 @@ def courts_data():
 def about():
     return render_template('about.html', item='about')
 
-# @app.route('/data')
-# def data():
-#     return render_template('data.html', item='data')
-
 @app.route('/map')
 def map():
     return render_template('map-v2.html', text= "Judicial Districts Map", item='map')
