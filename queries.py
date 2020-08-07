@@ -19,7 +19,7 @@ left join courts co
 
 length_scatter = """
 select
-    re.lenght_of_case_in_days, 
+    re.length_of_case_in_days, 
     se.month, 
     se.year, 
     of.offense_category, 
@@ -33,7 +33,7 @@ left join sentences se
 
 offense_box = """
 select
-    re.lenght_of_case_in_days, 
+    re.length_of_case_in_days, 
     of.offense_category 
 from results re
 left join offenses of
