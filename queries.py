@@ -39,3 +39,14 @@ from results re
 left join offenses of
     on re.offense_id = of.offense_id;
 """
+
+age_box = """
+select
+    pa.age_at_incident, 
+    of.offense_category 
+from results re
+left join offenses of
+    on re.offense_id = of.offense_id;
+left join participants pa
+    on re.case_participant_id = pa.case_participant_id;
+"""
