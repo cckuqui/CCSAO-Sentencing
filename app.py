@@ -18,7 +18,6 @@ def demographics():
 @app.route("/demographics/data")
 def demographics_data():
     demographics = pd.read_sql_query(queries.demographics, con=conn)
-
     return demographics.to_json(orient='records')
 
 
@@ -32,15 +31,13 @@ def length_of_case():
 
 @app.route("/length_of_case/scatter")
 def length_scatter():
-    lenght_scatter_df = pd.read_sql_query(queries.length_scatter, con=conn)
-
-    return lenght_scatter_df.to_json(orient='records')
+    length_scatter_df = pd.read_sql_query(queries.length_scatter, con=conn)
+    return length_scatter_df.to_json(orient='records')
 
 @app.route("/length_of_case/box")
 def length_box():
-    lenght_box_df = pd.read_sql_query(queries.offense_box, con=conn)
-
-    return lenght_box_df.to_json(orient='records')
+    length_box_df = pd.read_sql_query(queries.offense_box, con=conn)
+    return length_box_df.to_json(orient='records')
 
 @app.route('/courts')
 def courts():
@@ -49,7 +46,6 @@ def courts():
 @app.route("/courts/data")
 def courts_data():
     courts_df = pd.read_sql_query(queries.courts_data, con=conn)
-
     return courts_df.to_json(orient='records')
 
 @app.route('/about')
