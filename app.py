@@ -25,6 +25,11 @@ def demographics_data():
 def offense_category():
     return render_template('offense_category.html', item='offense_category')
 
+@app.route('/offense_category/box')
+def oc_box():
+    age_box_df = pd.read_sql_query(queries.age_box, con=conn)
+    return age_box_df.to_json(orient='records')
+
 @app.route('/length_of_case')
 def length_of_case():
     return render_template('length_of_case.html', item='length_of_case')
