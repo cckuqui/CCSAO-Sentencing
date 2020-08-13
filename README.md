@@ -4,7 +4,7 @@ This repository houses the code for a data visualization dashboard analyzing jud
 ![Image retrieved from Slaferek Callihoo Criminal Defence Lawyers website on 20/07/2020](https://www.slafereklaw.ca/wp-content/uploads/2019/06/Criminal-Sentencing.jpg)
 
 
-## Collaborators
+## Current Collaborators
 * [Cristina Bardan](https://github.com/cckuqui)
 * [Purvi Patel](https://github.com/patelpurvip)
 -----
