@@ -25,7 +25,7 @@ d3.json("/offense_category/box").then(function (data) {
     // Use `layout` to define a title
     var layout = {
       title: "Age at Incident by Offense Category",
-      width: 1300,
+      width: 950,
       height: 1000,
       paper_bgcolor: 'rgba(0,0,0,0)',
       plot_bgcolor: 'rgba(0,0,0,0)',
@@ -33,9 +33,6 @@ d3.json("/offense_category/box").then(function (data) {
       margin: {
         l:255
       },
-      // hoverlabel: {
-      //   namelength: -1
-      // },
       font: {
         color: 'white'
     }

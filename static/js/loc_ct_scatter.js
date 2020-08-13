@@ -18,7 +18,7 @@ d3.json("/length_of_case/scatter").then(function (data) {
   
   var layout = {
     title: "Frequency of Case Length group by Sentence Type",
-    width: 1400,
+    width: 950,
     height: 600,
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)', 

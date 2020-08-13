@@ -24,7 +24,7 @@ d3.json("/length_of_case/box").then(function (data) {
   // Use `layout` to define a title
   var layout = {
     title: "Length of cases by Offense Category",
-    width: 1400,
+    width: 950,
     height: 1000,
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',
@@ -32,9 +32,6 @@ d3.json("/length_of_case/box").then(function (data) {
     margin: {
       l:255
     },
-    // hoverlabel: {
-    //   namelength: -1
-    // },
     font: {
       color: 'white'
   }
