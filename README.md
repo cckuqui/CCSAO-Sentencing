@@ -1,6 +1,9 @@
 # CCSAO-Sentencing
 This repository houses the code for a data visualization dashboard analyzing judicial sentencing data for felony cases processed by the Cook County State's Attorney's Office (CCSAO) in Cook County, Illinois. For this project, the data has been filtered to only include cases from 2010-2019.
 
+### [Explore the interactive graphs!](https://ccsao-sentencing.herokuapp.com)
+
+
 ![Image retrieved from Slaferek Callihoo Criminal Defence Lawyers website on 20/07/2020](https://www.slafereklaw.ca/wp-content/uploads/2019/06/Criminal-Sentencing.jpg)
 
 
